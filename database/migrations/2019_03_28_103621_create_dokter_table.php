@@ -15,15 +15,13 @@ class CreateDokterTable extends Migration
     {
         Schema::create('dokter', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->timestamps();
             $table->enum('type', ['dokter_konsultan', 'dpjp']);
             $table->string('nama');
             $table->string('nik');
             $table->enum('unit',['bedah','paru','internis','syaraf'])->nullable();
             $table->enum('sub_unit', ['umum','orthopedi'])->nullable();
             $table->string('telepon');
-
-
+            $table->timestamps();
         });
     }
 

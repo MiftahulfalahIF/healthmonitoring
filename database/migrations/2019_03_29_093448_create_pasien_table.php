@@ -15,8 +15,8 @@ class CreatePasienTable extends Migration
     {
         Schema::create('pasien', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->integer('id_dpjp')->unsigned();
-            $table->integer('id_dokterkonsultan')->unsigned();
+            $table->integer('dpjp_id')->unsigned();
+            $table->integer('dokterkonsultan_id')->unsigned();
             $table->string('no_rekam');
             $table->timestamps();
             $table->string('nama');
@@ -32,14 +32,17 @@ class CreatePasienTable extends Migration
             $table->string('nama_pmo');
             $table->string('nik_pmo');
             $table->string('tlp_pmo');
+        });
 
-            $table->foreign('id_dpjp')
-            ->reference('id')->on('dokter')
-            ->onDelete('cascade');
+        Schema::table('pasien', function (Blueprint $table){
 
-            $table->foreign('id_dokterkonsultan')
-            ->reference('id')->on('dokter')
-            ->onDelete('cascade');
+            $table->foreign('dpjp_id')
+            ->references('id')->on('dokter')
+            ->onDelete('cascade')->onUpdate('cascade');
+
+            $table->foreign('dokterkonsultan_id')
+            ->references('id')->on('dokter')
+            ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
