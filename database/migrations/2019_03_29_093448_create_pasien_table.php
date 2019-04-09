@@ -34,11 +34,11 @@ class CreatePasienTable extends Migration
             $table->string('tlp_pmo');
 
             $table->foreign('id_dpjp')
-            ->reference('id')->on('dokter')
+            ->references('id')->on('dokter')
             ->onDelete('cascade');
 
             $table->foreign('id_dokterkonsultan')
-            ->reference('id')->on('dokter')
+            ->references('id')->on('dokter')
             ->onDelete('cascade');
         });
     }
