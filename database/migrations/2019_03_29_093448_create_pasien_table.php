@@ -23,11 +23,11 @@ class CreatePasienTable extends Migration
             $table->string('nik');
             $table->string('alamat');
             $table->enum('jk',['l','p']);
-            $table->enum('wanita_subur',['hamil','tidak_hamil']);
+            $table->enum('wanita_subur',['hamil','tidak_hamil'])->nullable();
             $table->date('tgl_lahir');
-            $table->decimal('bb', 3, 2);
-            $table->decimal('tb', 3, 2);
-            $table->enum('bentuk_oat',['kdt','kombipak']);
+            $table->decimal('bb', 8, 2);
+            $table->decimal('tb', 8, 2);
+            $table->enum('bentuk_obat',['kdt','kombipak']);
             $table->string('telepon');
             $table->string('nama_pmo');
             $table->string('nik_pmo');

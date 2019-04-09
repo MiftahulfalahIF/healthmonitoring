@@ -34,23 +34,23 @@
                             $user = Auth::user();
                         @endphp
 
-                        <!--   login perawat_klinik -->
-                        @if ($user->role =='perawat_klinik')
+                        <!--   login dokter_konsultan -->
+                        @if ($user->role =='dokter_konsultan')
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ action('PerawatKlinik\DashboardController@index') }}">Dashboard <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ action('DokterKonsultan\DashboardController@index') }}">Dashboard <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ action('PerawatKlinik\DashboardController@index') }}">Dokter <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ action('DokterKonsultan\DashboardController@index') }}">Dokter <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ action('PerawatKlinik\DashboardController@index') }}">Pasien <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ action('DokterKonsultan\DashboardController@index') }}">Pasien <span class="sr-only">(current)</span></a>
                         </li>
                         @endif
 
-                        <!--   login dokter -->
-                        @if ($user->role =='dokter')
+                        <!--   login dpjp -->
+                        @if ($user->role =='dpjp')
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ action('Dokter\DashboardController@index') }}">Dashboard <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ action('Dpjp\DashboardController@index') }}">Dashboard <span class="sr-only">(current)</span></a>
                         </li>
                         @endif
 

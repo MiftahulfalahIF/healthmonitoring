@@ -24,8 +24,7 @@ Route::post('/login/do', 'LoginController@loginDo');
 
 Route::get('/logout', 'LoginController@logout');
 
-Route::get('/perawat_klinik/dashboard', 'PerawatKlinik\DashboardController@index');
+Route::get('/dokter_konsultan/dashboard', 'DokterKonsultan\DashboardController@index');
 
-Route::get('/dokter/dashboard', 'Dokter\DashboardController@index');
+Route::get('/dpjp/dashboard', 'Dpjp\DashboardController@index');
 
-Route::get('/kepala_klinik/dashboard', 'KepalaKlinik\DashboardController@index');

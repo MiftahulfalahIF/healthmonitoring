@@ -19,13 +19,11 @@ class LoginController extends Controller
             // Authentication passed...
 
             $user = Auth::user();
-            if ($user->role=='perawat_klinik')
-                return redirect()->action('PerawatKlinik\DashboardController@index');
+            if ($user->role=='dokter_konsultan')
+                return redirect()->action('DokterKonsultan\DashboardController@index');
 
-            if ($user->role=='dokter')
-                return redirect()->action('Dokter\DashboardController@index');
-            if ($user->role=='kepala_klinik')
-                return redirect()->action('KepalaKlinik\DashboardController@index');
+            if ($user->role=='dpjp')
+                return redirect()->action('Dpjp\DashboardController@index');
 	    }
 
 	    // Kondisi salah email atau password

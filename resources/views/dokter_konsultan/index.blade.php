@@ -1,5 +1,5 @@
 @extends('layout')
 
 @section('body')
-masuk ke kepala klinik
+masuk ke dokter konsultan
 @endsection
