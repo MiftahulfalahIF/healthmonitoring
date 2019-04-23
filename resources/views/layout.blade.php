@@ -40,10 +40,10 @@
                             <a class="nav-link" href="{{ action('DokterKonsultan\DashboardController@index') }}">Dashboard <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ action('DokterKonsultan\DashboardController@index') }}">Dokter <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ action('DokterKonsultan\DokterController@index') }}">Dokter <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="{{ action('DokterKonsultan\DashboardController@index') }}">Pasien <span class="sr-only">(current)</span></a>
+                            <a class="nav-link" href="{{ action('DokterKonsultan\PasienController@index') }}">Pasien <span class="sr-only">(current)</span></a>
                         </li>
                         @endif
 

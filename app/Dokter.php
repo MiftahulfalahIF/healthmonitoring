@@ -6,9 +6,11 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class Dokter extends Authenticatable
 {
     use Notifiable;
+
+    protected $table='dokter';
 
     /**
      * The attributes that are mass assignable.
@@ -36,4 +38,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function monitorings()
+    {
+        return $this->hasMany('App\Monitoring');
+    }
 }

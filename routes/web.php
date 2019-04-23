@@ -24,7 +24,12 @@ Route::post('/login/do', 'LoginController@loginDo');
 
 Route::get('/logout', 'LoginController@logout');
 
-Route::get('/dokter_konsultan/dashboard', 'DokterKonsultan\DashboardController@index');
+Route::group(['prefix' => '/dokter_konsultan'], function(){
+	Route::get('/dashboard', 'DokterKonsultan\DashboardController@index');
+	Route::resource('/dokter', 'DokterKonsultan\DokterController');
+	Route::resource('/pasien', 'DokterKonsultan\PasienController');
+});
 
 Route::get('/dpjp/dashboard', 'Dpjp\DashboardController@index');
+
 

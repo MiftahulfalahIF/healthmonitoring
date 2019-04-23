@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use App\User;
+use App\Dokter;
 use App\Pasien;
 
 class DatabaseSeeder extends Seeder
@@ -13,31 +13,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // Seeder user
-        $user = new User;
-        $user->email = 'dokter_konsultan@healthmonitoring.com';
-        $user->password = bcrypt('12345');
-        $user->role = 'dokter_konsultan';
-        $user->save();
-
-        //$dokterkonsultan_id = $user->id;
-     
-        $user = new User;
-        $user->email = 'dpjp@healthmonitoring.com';
-        $user->password = bcrypt('1234');
-        $user->role = 'dpjp';
-        $user->save();
-
         
-     
-        $user = new User;
-        $user->email = 'pasien@healthmonitoring.com';
-        $user->password = bcrypt('12345');
-        $user->role = 'pasien';
-        $user->save();
-
         $dokter = new Dokter;
-        $dokter->type = 'dokter_konsultan';
+        $dokter->email = 'dokter_konsultan@healthmonitoring.com';
+        $dokter->password = bcrypt('12345');
+        $dokter->role = 'dokter_konsultan';
         $dokter->nama = 'Syifa Samsara';
         $dokter->nik = '111111';
         $dokter->unit = 'bedah';
@@ -45,8 +25,12 @@ class DatabaseSeeder extends Seeder
         $dokter->telepon = '087772262626';
         $dokter->save();
 
+        $dokterkonsultan_id = $dokter->id;
+
         $dokter = new Dokter;
-        $dokter->type = 'dpjp';
+        $dokter->email = 'dpjp@healthmonitoring.com';
+        $dokter->password = bcrypt('1234');
+        $dokter->role = 'dpjp';
         $dokter->nama = 'Liza';
         $dokter->nik = '121111';
         $dokter->unit = 'bedah';
@@ -60,9 +44,9 @@ class DatabaseSeeder extends Seeder
     	// Seeder pasien
         
          $pasien = new Pasien;
-         $pasien->dpjp_id = $dpjp_id;
-         $pasien->dokterkonsultan_id = $dokterkonsultan_id;
-         $pasien->no_rekam = '1000';
+         $pasien->email = 'pasien1@healthmonitoring.com';
+         $pasien->password = bcrypt('12345');
+         $pasien->no_rekam = '1001';
          $pasien->nama = 'Dzaki';
          $pasien->nik = '123456789';
          $pasien->alamat = 'Xibiru Bandung';
@@ -78,9 +62,9 @@ class DatabaseSeeder extends Seeder
          $pasien->save();
 
          $pasien = new Pasien;
-         $pasien->dpjp_id = $dpjp_id;
-         $pasien->dokterkonsultan_id = $dokterkonsultan_id;
-         $pasien->no_rekam = '1001';
+         $pasien->email = 'pasien2@healthmonitoring.com';
+         $pasien->password = bcrypt('12345');
+         $pasien->no_rekam = '1002';
          $pasien->nama = 'Hasna';
          $pasien->nik = '123456755';
          $pasien->alamat = 'Xibiru Bandung Ujung Beurit';
@@ -97,9 +81,9 @@ class DatabaseSeeder extends Seeder
          $pasien->save();
 
          $pasien = new Pasien;
-         $pasien->dpjp_id = $dpjp_id;
-         $pasien->dokterkonsultan_id = $dokterkonsultan_id;
-         $pasien->no_rekam = '1002';
+         $pasien->email = 'pasien3@healthmonitoring.com';
+         $pasien->password = bcrypt('12345');
+         $pasien->no_rekam = '1003';
          $pasien->nama = 'Yori';
          $pasien->nik = '423456755';
          $pasien->alamat = 'Purbakala Padalarng';
