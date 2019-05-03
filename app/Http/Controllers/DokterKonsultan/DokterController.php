@@ -67,6 +67,8 @@ class DokterController extends Controller
         $dokter->sub_unit = $request->input('sub_unit');
         $dokter->telepon = $request->input('telepon');
         $dokter->save();
+
+        return redirect()->action('DokterKonsultan\DokterController@index')->with ('msg', 'Data Berhasil Ditambahkan');
     }
 
     /**
@@ -88,7 +90,10 @@ class DokterController extends Controller
      */
     public function edit($id)
     {
-        //
+        $dokter = Dokter::find($id);
+
+        return view('dokter_konsultan.dokter.edit')->with('dokter', $dokter);
+
     }
 
     /**
@@ -100,7 +105,38 @@ class DokterController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData = $request->validate([
+            'email' => 'required|email|unique:dokter,email,'.$id.'|max:255',
+            'nama' => 'required',
+            'nik' => 'required|numeric|unique:dokter,nik,'.$id.'',
+            'telepon' => 'required',
+        ],
+        [
+            'email.required' => 'Email harus diisi',
+            'email.email' => 'Format email tidak tepat',
+            'email.unique' => 'Email sudah terdaftar',
+            'nama.required' => 'Nama harus diisi',
+            'nik.required' => 'NIK harus diisi',
+            'nik.numeric' => 'NIK tidak sesuai format',
+            'nik.unique' => 'NIK sudah terdaftar',
+            'telepon.required' => 'Telepon harus diisi',
+
+
+        ]);
+
+        $dokter =Dokter::find($id);
+        $dokter->email = $request->input('email');
+        $dokter->password = bcrypt('mauwisuda');
+        $dokter->role = $request->input('role');
+        $dokter->nama = $request->input('nama');
+        $dokter->nik = $request->input('nik');
+        $dokter->unit = $request->input('unit');
+        $dokter->sub_unit = $request->input('sub_unit');
+        $dokter->telepon = $request->input('telepon');
+        $dokter->save();
+
+
+        return redirect()->action('DokterKonsultan\DokterController@index')->with ('msg', 'Data Berhasil Diedit');
     }
 
     /**
@@ -111,6 +147,12 @@ class DokterController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dokter = Dokter::find($id);
+        $dokter->delete();
+        
+        return redirect()->action('DokterKonsultan\DokterController@index')->with('msg', 'Data berhasil dihapus');
+
+
+
     }
 }
