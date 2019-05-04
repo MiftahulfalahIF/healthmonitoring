@@ -4,7 +4,7 @@
 <div class="container" style="margin-top: 20px; text-align: center;">
 <div class="card" style="width: 18rem; margin: auto; text-align: left;">
   <div class="card-body">
-    <h5 class="card-title" style="text-align: center;">Login</h5>
+    <h5 class="card-title" style="text-align: center;">Tambah Dokter</h5>
 
 	<form action="{{ action('DokterKonsultan\DokterController@store') }}" method="post">
 		@csrf

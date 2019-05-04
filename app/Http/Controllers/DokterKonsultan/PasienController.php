@@ -26,7 +26,8 @@ class PasienController extends Controller
      */
     public function create()
     {
-        //
+        $pasiens = Pasien::get();
+        return view('dokter_konsultan.pasien.create')->with('pasiens', $pasiens);
     }
 
     /**
@@ -37,7 +38,47 @@ class PasienController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        /*
+        {
+        $validatedData = $request->validate([
+            'email' => 'required|email|unique:dokter|max:255',
+            'nama' => 'required',
+            'nik' => 'required|numeric|unique:dokter',
+            'telepon' => 'required',
+        ],
+        [
+            'email.required' => 'Email harus diisi',
+            'email.email' => 'Format email tidak tepat',
+            'email.unique' => 'Email sudah terdaftar',
+            'nama.required' => 'Nama harus diisi',
+            'nik.required' => 'NIK harus diisi',
+            'nik.numeric' => 'NIK tidak sesuai format',
+            'nik.unique' => 'NIK sudah terdaftar',
+            'telepon.required' => 'Telepon harus diisi',
+
+
+        ]);*/
+
+        $pasien = new Pasien;
+        $pasien->nama = $request->input('nama');
+        $pasien->nik = $request->input('nik');
+        $pasien->no_rekam = $request->input('no_rekam');
+        $pasien->password = bcrypt('12345');
+        $pasien->email = $request->input('email');
+        $pasien->alamat = $request->input('alamat');
+        $pasien->jk = $request->input('jk');
+        $pasien->wanita_subur = $request->input('wanita_subur');
+        $pasien->tgl_lahir = $request->input('tgl_lahir');
+        $pasien->bb = $request->input('bb');
+        $pasien->tb = $request->input('tb');
+        $pasien->bentuk_obat = $request->input('bentuk_obat');
+        $pasien->telepon = $request->input('telepon');
+        $pasien->nama_pmo = $request->input('nama_pmo');
+        $pasien->nik_pmo = $request->input('nik_pmo');
+        $pasien->tlp_pmo = $request->input('tlp_pmo');
+        $pasien->save();
+
+        return redirect()->action('DokterKonsultan\PasienController@index')->with ('msg', 'Data Berhasil Ditambahkan');
     }
 
     /**
@@ -59,7 +100,9 @@ class PasienController extends Controller
      */
     public function edit($id)
     {
-        //
+        $pasien = Pasien::find($id);
+
+        return view('dokter_konsultan.pasien.edit')->with('pasien', $pasien);
     }
 
     /**
@@ -71,7 +114,27 @@ class PasienController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $pasien =Pasien::find($id);
+        $pasien->nama = $request->input('nama');
+        $pasien->password = bcrypt('mauwisuda');
+        $pasien->nik = $request->input('nik');
+        $pasien->no_rekam = $request->input('no_rekam');
+        $pasien->email = $request->input('email');
+        $pasien->alamat = $request->input('alamat');
+        $pasien->jk = $request->input('jk');
+        $pasien->wanita_subur = $request->input('wanita_subur');
+        $pasien->tgl_lahir = $request->input('tgl_lahir');
+        $pasien->bb = $request->input('bb');
+        $pasien->tb = $request->input('tb');
+        $pasien->bentuk_obat = $request->input('bentuk_obat');
+        $pasien->telepon = $request->input('telepon');
+        $pasien->nama_pmo = $request->input('nama_pmo');
+        $pasien->nik_pmo = $request->input('nik_pmo');
+        $pasien->tlp_pmo = $request->input('tlp_pmo');
+        $pasien->save();
+
+
+        return redirect()->action('DokterKonsultan\PasienController@index')->with ('msg', 'Data Berhasil Diedit');
     }
 
     /**
@@ -82,6 +145,10 @@ class PasienController extends Controller
      */
     public function destroy($id)
     {
-        //
+         $pasien = Pasien::find($id);
+        $pasien->delete();
+        
+        return redirect()->action('DokterKonsultan\PasienController@index')->with('msg', 'Data berhasil dihapus');
+
     }
 }
