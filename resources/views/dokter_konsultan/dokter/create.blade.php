@@ -12,15 +12,15 @@
 	<form action="{{ action('DokterKonsultan\DokterController@store') }}" method="post">
 		@csrf
 	  <div class="form-group">
-	    <label for="exampleInputPassword1">NIK</label>
-	    <input name="nik" type="nik" class="form-control" placeholder="Masukan NIK">
+	    <label >NIK</label>
+	    <input name="nik" value="{{ old('nik') }}" class="form-control" placeholder="Masukan NIK">
 	    @if ($errors->has('nik'))
 	    	<div style="color: #ff0000">{{  $errors->first('nik') }}</div>
 	    @endif
 	  </div >
 	  <div class="form-group">
-	    <label for="exampleInputPassword1">Nama</label>
-	    <input name="nama" type="nama" class="form-control" placeholder="Masukan Nama">
+	    <label >Nama</label>
+	    <input name="nama" value="{{ old('nama') }}" class="form-control" placeholder="Masukan Nama">
 	    @if ($errors->has('nama'))
 	    	<div style="color: #ff0000">{{  $errors->first('nama') }}</div>
 	    @endif
@@ -40,8 +40,8 @@
 	 	</select>
 	 </div>
 	  <div class="form-group">
-	    <label for="exampleInputPassword1">Email</label>
-	    <input name="email" class="form-control" placeholder="Masukan Email">
+	    <label >Email</label>
+	    <input name="email" value="{{old('email')}}" class="form-control" placeholder="Masukan Email">
 	    @if ($errors->has('email'))
 	    	<div style="color: #ff0000">{{  $errors->first('email') }}</div>
 	    @endif
@@ -63,8 +63,8 @@
 	 	</select>
 	 </div>
 	  <div class="form-group">
-	    <label for="exampleInputPassword1">Telepon</label>
-	    <input name="telepon" type="telepon" class="form-control" placeholder="Masukan No Telepon">
+	    <label >Telepon</label>
+	    <input name="telepon" value="{{old('telepon')}}" class="form-control" placeholder="Masukan No Telepon">
 	    @if ($errors->has('telepon'))
 	    	<div style="color: #ff0000">{{  $errors->first('telepon') }}</div>
 	    @endif

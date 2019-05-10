@@ -10,24 +10,25 @@
 		@csrf
 	  <div class="form-group">
 	    <label >Kode</label>
-	    <input name="kode" type="kode" class="form-control" placeholder="Masukan Kode">
+	    <input name="kode" value="{{old('kode')}}" class="form-control" placeholder="Masukan Kode">
 	    @if ($errors->has('kode'))
 	    	<div style="color:#ff0000 ">{{  $errors->first('kode') }}</div>
 	    @endif
 	  </div >
 	  <div class="form-group">
 	    <label >Nama Obat</label>
-	    <input name="nama" type="nama" class="form-control" placeholder="Masukan Nama Obat">
+	    <input name="nama" value="{{old('nama')}}" class="form-control" placeholder="Masukan Nama Obat">
 	    @if ($errors->has('nama'))
 	    	<div style="color: #ff0000">{{  $errors->first('nama') }}</div>
 	    @endif
+
 	   <div class="form-group">
 	 	<label> Golongan </label>
 	 	<select name="golongan" class="form-control">
 	 		<option value="paracetamol">Paracetamol</option>
 	 		<option value="tramadol">Tramadol</option>
 	 	</select>
-	   </div>
+	 </div>
 	 
 	   <div class="form-group">
 	 	<label> Ketegori </label>
@@ -38,28 +39,28 @@
 	 </div>
 	  <div class="form-group">
 	    <label >Bentuk</label>
-	    <input name="bentuk" type="bentuk" class="form-control" placeholder="Masukan Bentuk">
+	    <input name="bentuk" value="{{old('bentuk')}}" class="form-control" placeholder="Masukan Bentuk">
 	    @if ($errors->has('bentuk'))
 	    	<div style="color: #ff0000">{{  $errors->first('bentuk') }}</div>
 	    @endif
 	  </div >
 	  <div class="form-group">
 	    <label >Indikasi</label>
-	    <input name="indikasi" type="indikasi" class="form-control" placeholder="Masukan Indikasi">
+	    <input name="indikasi" value="{{old('indikasi')}}" class="form-control" placeholder="Masukan Indikasi">
 	    @if ($errors->has('indikasi'))
 	    	<div style="color: #ff0000">{{  $errors->first('indikasi') }}</div>
 	    @endif
 	  </div >
 	  <div class="form-group">
 	    <label >Dosis</label>
-	    <input name="dosis" type="dosis" class="form-control" placeholder="Masukan Dosis">
+	    <input name="dosis" value="{{old('dosis')}}" class="form-control" placeholder="Masukan Dosis">
 	    @if ($errors->has('dosis'))
 	    	<div style="color: #ff0000">{{  $errors->first('dosis') }}</div>
 	    @endif
 	  </div >
 	  <div class="form-group">
 	    <label >Produsen</label>
-	    <input name="produsen" type="produsen" class="form-control" placeholder="Masukan Produsen">
+	    <input name="produsen" value="{{old('produsen')}}" class="form-control" placeholder="Masukan Produsen">
 	    @if ($errors->has('produsen'))
 	    	<div style="color: #ff0000">{{  $errors->first('produsen') }}</div>
 	    @endif

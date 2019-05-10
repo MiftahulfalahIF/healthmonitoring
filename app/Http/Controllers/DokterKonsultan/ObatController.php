@@ -55,7 +55,7 @@ class ObatController extends Controller
             'bentuk.required' => 'Bentuk Obat harus diisi',
             'indikasi.required' => 'Indikasi Obat harus diisi',
             'dosis.required' => 'Dosis Obat harus diisi',
-            'produsen.required' => 'Dosis Obat harus diisi',
+            'produsen.required' => 'Produsen harus diisi',
 
 
         ]);
