@@ -30,6 +30,13 @@
 	 	</select>
 	 </div>
 	  <div class="form-group">
+	 	<label> Status </label>
+	 	<select name="status" class="form-control">
+	 		<option value="aktif">Aktif</option>
+	 		<option value="tidak_aktif">Nonaktif</option>
+	 	</select>
+	 </div>
+	  <div class="form-group">
 	    <label for="exampleInputPassword1">Email</label>
 	    <input name="email" class="form-control" placeholder="Masukan Email">
 	    @if ($errors->has('email'))

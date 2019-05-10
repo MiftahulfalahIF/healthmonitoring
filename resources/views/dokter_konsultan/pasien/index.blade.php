@@ -22,8 +22,9 @@
 			<thead>
 				<tr>
 					<th>No</th>
-					<th>Nama</th>
 					<th>NIK</th>
+					<th>Nama</th>
+					<th>Status</th>
 					<th>No.Rekam Medis</th>
 					<th>Email</th>
 					<th>Alamat</th>
@@ -44,13 +45,32 @@
 				@foreach($pasiens as $pasien)
 				<tr>
 				<td>0</td>
-				<td>{{ $pasien->nama }}</td>
 				<td>{{ $pasien->nik }}</td>
+				<td>{{ $pasien->nama }}</td>
+				<td>
+					@if($pasien->status=='aktif')
+					<div class="badge btn-success">Aktif</div>
+					@else
+					<div class="badge btn-danger">Nonaktif</div>
+					@endif
+				</td>
 				<td>{{ $pasien->no_rekam }}</td>
 				<td>{{ $pasien->email }}</td>
 				<td>{{ $pasien->alamat }}</td>
-				<td>{{ $pasien->jk }}</td>
-				<td>{{ $pasien->wanita_subur }}</td>
+				<td>
+					@if($pasien->jk=='l')
+					<div >Laki-Laki</div>
+					@else
+					<div >Perempuan</div>
+					@endif
+				</td>
+				<td>
+					@if($pasien->wanita_subur=='hamil')
+					<div >Hamil</div>
+					@else
+					<div >Tidak Hamil</div>
+					@endif
+				</td>
 				<td>{{ $pasien->tgl_lahir }}</td>
 				<td>{{ $pasien->bb}}</td>
 				<td>{{ $pasien->tb }}</td>
@@ -61,7 +81,7 @@
 				<td>{{ $pasien->tlp_pmo }}</td>
 				<td>
 				<a href="{{ action('DokterKonsultan\PasienController@edit', $pasien->id) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Edit</a>
-		    <button onclick="hapus({{ $pasien->id }})" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Hapus</button>
+		<!--     <button onclick="hapus({{ $pasien->id }})" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Hapus</button> -->
 		    		</td>
 			</tr>
 		@endforeach

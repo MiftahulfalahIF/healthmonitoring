@@ -45,6 +45,9 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="{{ action('DokterKonsultan\PasienController@index') }}">Pasien <span class="sr-only">(current)</span></a>
                         </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ action('DokterKonsultan\ObatController@index') }}">Obat <span class="sr-only">(current)</span></a>
+                        </li>
                         @endif
 
                         <!--   login dpjp -->
@@ -53,14 +56,6 @@
                             <a class="nav-link" href="{{ action('Dpjp\DashboardController@index') }}">Dashboard <span class="sr-only">(current)</span></a>
                         </li>
                         @endif
-
-                         @if ($user->role =='kepala_klinik')
-                        <li class="nav-item active">
-                            <a class="nav-link" href="{{ action('KepalaKlinik\DashboardController@index') }}">Dashboard <span class="sr-only">(current)</span></a>
-                        </li>
-                        @endif
-
-
 
                         <!-- menu logout semua user -->
                          <li class="nav-item active">

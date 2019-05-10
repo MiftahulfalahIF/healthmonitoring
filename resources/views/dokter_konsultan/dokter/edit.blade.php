@@ -12,6 +12,10 @@ $nik = $dokter->nik;
 if(old('nik')!=null){
 	$nik = old('nik');
 }
+$status = $dokter->status;
+if(old('status')!=null){
+	$status = old('status');
+}
 $email = $dokter->email;
 if(old('email')!=null){
 	$email = old('email');
@@ -71,6 +75,14 @@ if(old('sub_unit')!=null){
 			>Dokter Konsultan</option>
 	 	</select>
 	 </div>
+	 <div class="form-group">
+	 	<label> Status </label>
+	 	<select name="status" class="form-control">
+	 		<option value="aktif"  @if($status == 'aktif') selected=true @endif>Aktif</option>
+	 		<option value="tidak_aktif"  @if($status == 'tidak_aktif') selected=true @endif
+			>Nonaktif</option>
+	 	</select>
+	   </div >
 	  <div class="form-group">
 	    <label for="exampleInputPassword1">Email</label>
 	    <input name="email" value="{{$email}}" class="form-control" placeholder="Masukan Email">

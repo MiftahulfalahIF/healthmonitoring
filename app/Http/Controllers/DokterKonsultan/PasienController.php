@@ -60,9 +60,11 @@ class PasienController extends Controller
         ]);*/
 
         $pasien = new Pasien;
+
         $pasien->nama = $request->input('nama');
         $pasien->nik = $request->input('nik');
         $pasien->no_rekam = $request->input('no_rekam');
+        $pasien->status = $request->input('status');
         $pasien->password = bcrypt('12345');
         $pasien->email = $request->input('email');
         $pasien->alamat = $request->input('alamat');
@@ -118,6 +120,7 @@ class PasienController extends Controller
         $pasien->nama = $request->input('nama');
         $pasien->password = bcrypt('mauwisuda');
         $pasien->nik = $request->input('nik');
+        $pasien->status = $request->input('status');
         $pasien->no_rekam = $request->input('no_rekam');
         $pasien->email = $request->input('email');
         $pasien->alamat = $request->input('alamat');

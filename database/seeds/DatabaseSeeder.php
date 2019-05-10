@@ -3,6 +3,10 @@
 use Illuminate\Database\Seeder;
 use App\Dokter;
 use App\Pasien;
+use App\Obat;
+use App\GolonganObat;
+use App\KategoriObat;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $dokter->role = 'dokter_konsultan';
         $dokter->nama = 'Syifa Samsara';
         $dokter->nik = '111111';
+        $dokter->status = 'aktif';
         $dokter->unit = 'bedah';
         $dokter->sub_unit = 'umum';
         $dokter->telepon = '087772262626';
@@ -27,6 +32,7 @@ class DatabaseSeeder extends Seeder
 
         $dokterkonsultan_id = $dokter->id;
 
+    /**
         $dokter = new Dokter;
         $dokter->email = 'dpjp@healthmonitoring.com';
         $dokter->password = bcrypt('1234');
@@ -39,6 +45,7 @@ class DatabaseSeeder extends Seeder
         $dokter->save();
 
         $dpjp_id = $dokter->id;
+    */
         
 
     	// Seeder pasien
@@ -61,45 +68,36 @@ class DatabaseSeeder extends Seeder
          $pasien->tlp_pmo = '08772536373';
          $pasien->save();
 
-         $pasien = new Pasien;
-         $pasien->email = 'pasien2@healthmonitoring.com';
-         $pasien->password = bcrypt('12345');
-         $pasien->no_rekam = '1002';
-         $pasien->nama = 'Hasna';
-         $pasien->nik = '123456755';
-         $pasien->alamat = 'Xibiru Bandung Ujung Beurit';
-         $pasien->jk = 'p';
-         $pasien->wanita_subur = 'tidak_hamil';
-         $pasien->tgl_lahir = '1993-06-30';
-         $pasien->bb = 50.00;
-         $pasien->tb = 165.00;
-         $pasien->bentuk_obat = 'kdt';
-         $pasien->telepon = '08572134437';
-         $pasien->nama_pmo = 'Dzaki';
-         $pasien->nik_pmo = '123449812';
-         $pasien->tlp_pmo = '08774446373';
-         $pasien->save();
 
-         $pasien = new Pasien;
-         $pasien->email = 'pasien3@healthmonitoring.com';
-         $pasien->password = bcrypt('12345');
-         $pasien->no_rekam = '1003';
-         $pasien->nama = 'Yori';
-         $pasien->nik = '423456755';
-         $pasien->alamat = 'Purbakala Padalarng';
-         $pasien->jk = 'l';
-         $pasien->tgl_lahir = '1994-06-30';
-         $pasien->bb = 70.00;
-         $pasien->tb = 185.00;
-         $pasien->bentuk_obat = 'kdt';
-         $pasien->telepon = '08572134437';
-         $pasien->nama_pmo = 'Broto';
-         $pasien->nik_pmo = '923449812';
-         $pasien->tlp_pmo = '988774446373';
-         $pasien->save();
+         // Seeder Obat
+        
 
-         
+        $golongan1 = new GolonganObat;
+        $golongan1->nama = 'paracetamol';
+        $golongan1->save();
 
+        $golongan2 = new GolonganObat;
+        $golongan2->nama = 'tramadol';
+        $golongan2->save();
+
+        $kategori1 = new KategoriObat;
+        $kategori1->nama = 'obat_keras';
+        $kategori1->save();
+
+        $kategori2 = new KategoriObat;
+        $kategori2->nama = 'obat_ringan';
+        $kategori2->save();
+
+        $obat = new Obat;
+        $obat->kode = 'yhc123';
+        $obat->nama = 'DECADRYL EKSPEKTORAN';
+        $obat->golongan_id = $golongan1->id;
+        $obat->kategori_id = $kategori1->id;
+        $obat->bentuk = 'sirup';
+        $obat->indikasi = 'batuk, pilek, sesak nafas';
+        $obat->dosis = 'sehat';
+        $obat->produsen = 'Harsen';
+        $obat->save();
 
 
     }

@@ -30,6 +30,13 @@
 	    @endif
 	  </div >
 	  <div class="form-group">
+	 	<label> Status</label>
+	 	<select name="status" class="form-control">
+	 		<option value="aktif">Aktif</option>
+	 		<option value="tidak_aktif">Nonaktif</option>
+	 	</select>
+	  </div>
+	  <div class="form-group">
 	    <label >Email</label>
 	    <input name="email" type="email" class="form-control" placeholder="Masukan Email">
 	    @if ($errors->has('email'))
@@ -49,6 +56,7 @@
 	 		<option value="l">Laki-Laki</option>
 	 		<option value="p">Perempuan</option>
 	 	</select>
+	 </div>
 	 <div class="form-group">
 	 	<label> Wanita Subur</label>
 	 	<select name="wanita_subur" class="form-control">
