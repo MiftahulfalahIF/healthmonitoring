@@ -23,12 +23,12 @@
 				<tr>
 					<th>No</th>
 					<th>NIK</th>
-					<th>Nama</th>
+					<th>Nama Pasien</th>
 					<th>Status</th>
 					<th>No.Rekam Medis</th>
 					<th>Email</th>
 					<th>Alamat</th>
-					<th>Kelamin</th>
+					<th>Jenis Kelamin</th>
 					<th>Wanita Subur</th>
 					<th>Tanggal Lahir</th>
 					<th>Berat Badan</th>

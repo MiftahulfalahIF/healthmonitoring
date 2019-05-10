@@ -38,29 +38,51 @@ class PasienController extends Controller
      */
     public function store(Request $request)
     {
-        /*
-        {
         $validatedData = $request->validate([
-            'email' => 'required|email|unique:dokter|max:255',
             'nama' => 'required',
-            'nik' => 'required|numeric|unique:dokter',
-            'telepon' => 'required',
+            'nik' => 'required|numeric|unique:pasien',
+            'no_rekam' => 'required|numeric|unique:pasien',
+            'email' => 'required|email|unique:pasien|max:255',
+            'alamat' => 'required',
+            'tgl_lahir' => 'required',
+            'bb' => 'required|numeric',
+            'tb' => 'required|numeric',
+            'telepon' => 'required|numeric',
+            'nama_pmo' => 'required',
+            'nik_pmo' => 'required|numeric',
+            'tlp_pmo' => 'required|numeric',
+
         ],
         [
+            'nama.required' => 'Nama harus diisi',
+            'nik.required' => 'NIK harus diisi',
+            'nik.unique' => 'NIK sudah terdaftar',
+            'nik.numeric' => 'NIK tidak sesuai format',
+            'no_rekam.required' => 'NO REKAM harus diisi',
+            'no_rekam.unique' => 'NO REKAM sudah terdaftar',
+            'no_rekam.numeric' => 'NO REKAM tidak sesuai format',
             'email.required' => 'Email harus diisi',
             'email.email' => 'Format email tidak tepat',
             'email.unique' => 'Email sudah terdaftar',
-            'nama.required' => 'Nama harus diisi',
-            'nik.required' => 'NIK harus diisi',
-            'nik.numeric' => 'NIK tidak sesuai format',
-            'nik.unique' => 'NIK sudah terdaftar',
+            'alamat.required' => 'Alamat harus diisi',
+            'tgl_lahir.required' => 'Tanggal lahir harus diisi',
+            'bb.required' => 'Berat badan harus diisi',
+            'bb.numeric' => 'Berat badan tidak sesuai format',
+            'tb.required' => 'Tinggi badan harus diisi',
+            'tb.numeric' => 'Tinggi badan tidak sesuai format',
             'telepon.required' => 'Telepon harus diisi',
+            'telepon.numeric' => 'Telepon tidak sesuai format',
+            'nama_pmo.required' => 'Nama PMO harus diisi',
+            'nik_pmo.required' => 'NIK PMO harus diisi',
+            'nik_pmo.numeric' => 'NIK tidak sesuai format',
+            'tlp_pmo.required' => 'Telepon PMO harus diisi',
+            'tlp_pmo.numeric' => 'Telepon tidak sesuai format',
 
 
-        ]);*/
+        ]);
+
 
         $pasien = new Pasien;
-
         $pasien->nama = $request->input('nama');
         $pasien->nik = $request->input('nik');
         $pasien->no_rekam = $request->input('no_rekam');
@@ -116,6 +138,51 @@ class PasienController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+        $validatedData = $request->validate([
+            'nama' => 'required',
+            'nik' =>  'required|numeric|unique:pasien,nik,'.$id.'',
+            'no_rekam' => 'required|numeric|unique:pasien,no_rekam,'.$id.'',
+            'email' => 'required|email|unique:pasien,email,'.$id.'|max:255',
+            'alamat' => 'required',
+            'tgl_lahir' => 'required',
+            'bb' => 'required|numeric',
+            'tb' => 'required|numeric',
+            'telepon' => 'required|numeric',
+            'nama_pmo' => 'required',
+            'nik_pmo' => 'required|numeric',
+            'tlp_pmo' => 'required|numeric',
+
+        ],
+        [
+            'nama.required' => 'Nama harus diisi',
+            'nik.required' => 'NIK harus diisi',
+            'nik.unique' => 'NIK sudah terdaftar',
+            'nik.numeric' => 'NIK tidak sesuai format',
+            'no_rekam.required' => 'NO REKAM harus diisi',
+            'no_rekam.unique' => 'NO REKAM sudah terdaftar',
+            'no_rekam.numeric' => 'NO REKAM tidak sesuai format',
+            'email.required' => 'Email harus diisi',
+            'email.email' => 'Format email tidak tepat',
+            'email.unique' => 'Email sudah terdaftar',
+            'alamat.required' => 'Alamat harus diisi',
+            'tgl_lahir.required' => 'Tanggal lahir harus diisi',
+            'bb.required' => 'Berat badan harus diisi',
+            'bb.numeric' => 'Berat badan tidak sesuai format',
+            'tb.required' => 'Tinggi badan harus diisi',
+            'tb.numeric' => 'Tinggi badan tidak sesuai format',
+            'telepon.required' => 'Telepon harus diisi',
+            'telepon.numeric' => 'Telepon tidak sesuai format',
+            'nama_pmo.required' => 'Nama PMO harus diisi',
+            'nik_pmo.required' => 'NIK PMO harus diisi',
+            'nik_pmo.numeric' => 'NIK tidak sesuai format',
+            'tlp_pmo.required' => 'Telepon PMO harus diisi',
+            'tlp_pmo.numeric' => 'Telepon tidak sesuai format',
+
+
+        ]);
+
+        
         $pasien =Pasien::find($id);
         $pasien->nama = $request->input('nama');
         $pasien->password = bcrypt('mauwisuda');

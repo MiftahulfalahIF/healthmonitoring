@@ -12,14 +12,14 @@
 	    <label >Kode</label>
 	    <input name="kode" type="kode" class="form-control" placeholder="Masukan Kode">
 	    @if ($errors->has('kode'))
-	    	<div>{{  $errors->first('kode') }}</div>
+	    	<div style="color:#ff0000 ">{{  $errors->first('kode') }}</div>
 	    @endif
 	  </div >
 	  <div class="form-group">
 	    <label >Nama Obat</label>
 	    <input name="nama" type="nama" class="form-control" placeholder="Masukan Nama Obat">
 	    @if ($errors->has('nama'))
-	    	<div>{{  $errors->first('nama') }}</div>
+	    	<div style="color: #ff0000">{{  $errors->first('nama') }}</div>
 	    @endif
 	   <div class="form-group">
 	 	<label> Golongan </label>
@@ -40,28 +40,28 @@
 	    <label >Bentuk</label>
 	    <input name="bentuk" type="bentuk" class="form-control" placeholder="Masukan Bentuk">
 	    @if ($errors->has('bentuk'))
-	    	<div>{{  $errors->first('bentuk') }}</div>
+	    	<div style="color: #ff0000">{{  $errors->first('bentuk') }}</div>
 	    @endif
 	  </div >
 	  <div class="form-group">
 	    <label >Indikasi</label>
 	    <input name="indikasi" type="indikasi" class="form-control" placeholder="Masukan Indikasi">
 	    @if ($errors->has('indikasi'))
-	    	<div>{{  $errors->first('indikasi') }}</div>
+	    	<div style="color: #ff0000">{{  $errors->first('indikasi') }}</div>
 	    @endif
 	  </div >
 	  <div class="form-group">
 	    <label >Dosis</label>
 	    <input name="dosis" type="dosis" class="form-control" placeholder="Masukan Dosis">
 	    @if ($errors->has('dosis'))
-	    	<div>{{  $errors->first('dosis') }}</div>
+	    	<div style="color: #ff0000">{{  $errors->first('dosis') }}</div>
 	    @endif
 	  </div >
 	  <div class="form-group">
 	    <label >Produsen</label>
 	    <input name="produsen" type="produsen" class="form-control" placeholder="Masukan Produsen">
 	    @if ($errors->has('produsen'))
-	    	<div>{{  $errors->first('produsen') }}</div>
+	    	<div style="color: #ff0000">{{  $errors->first('produsen') }}</div>
 	    @endif
 	  </div >
 

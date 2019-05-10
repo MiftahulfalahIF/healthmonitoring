@@ -130,5 +130,5 @@ if(old('sub_unit')!=null){
 </div>
 </div>
 
-create
+edit
 @endsection

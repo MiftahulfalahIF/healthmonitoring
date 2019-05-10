@@ -38,6 +38,28 @@ class ObatController extends Controller
      */
     public function store(Request $request)
     {
+        $validatedData = $request->validate([
+            'kode' => 'required|unique:obat',
+            'nama' => 'required',
+            'bentuk' => 'required',
+            'indikasi' => 'required',
+            'dosis' => 'required',
+            'produsen' => 'required',
+            
+
+        ],
+        [
+            'kode.required' => 'Kode harus diisi',
+            'kode.unique' => 'KODE sudah terdaftar',
+            'nama.required' => 'Nama Obat harus diisi',
+            'bentuk.required' => 'Bentuk Obat harus diisi',
+            'indikasi.required' => 'Indikasi Obat harus diisi',
+            'dosis.required' => 'Dosis Obat harus diisi',
+            'produsen.required' => 'Dosis Obat harus diisi',
+
+
+        ]);
+
         $obat = new Obat;
         
         $obat->kode = $request->input('kode');
@@ -73,7 +95,7 @@ class ObatController extends Controller
     public function edit($id)
     {
         
-
+        
     }
 
     /**

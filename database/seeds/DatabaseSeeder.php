@@ -54,9 +54,9 @@ class DatabaseSeeder extends Seeder
          $pasien->email = 'pasien1@healthmonitoring.com';
          $pasien->password = bcrypt('12345');
          $pasien->no_rekam = '1001';
-         $pasien->nama = 'Dzaki';
-         $pasien->nik = '123456789';
-         $pasien->alamat = 'Xibiru Bandung';
+         $pasien->nama = 'Dzaki N S';
+         $pasien->nik = '3411151001';
+         $pasien->alamat = 'Ujung Berung Bandung';
          $pasien->jk = 'l';
          $pasien->tgl_lahir = '1992-06-30';
          $pasien->bb = 80.00;
@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
          $pasien->bentuk_obat = 'kdt';
          $pasien->telepon = '08572123537';
          $pasien->nama_pmo = 'Hasna';
-         $pasien->nik_pmo = '21839812';
+         $pasien->nik_pmo = '24111151001';
          $pasien->tlp_pmo = '08772536373';
          $pasien->save();
 
