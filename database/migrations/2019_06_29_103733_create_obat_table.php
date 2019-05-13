@@ -17,8 +17,8 @@ class CreateObatTable extends Migration
             $table->increments('id')->unsigned();
             $table->string('kode', 100)->unique();
             $table->string('nama');
-            $table->integer('golongan_id')->unsigned();
-            $table->integer('kategori_id')->unsigned();
+            $table->string('golongan');
+            $table->string('kategori');
             $table->string('bentuk');
             $table->string('indikasi');
             $table->string('dosis');
@@ -27,19 +27,7 @@ class CreateObatTable extends Migration
             $table->timestamps();
         });
 
-        Schema::table('obat', function (Blueprint $table){
-
-            $table->foreign('golongan_id')
-            ->references('id')->on('golongan_obat')
-            ->onDelete('cascade')->onUpdate('cascade');
-
-
-            $table->foreign('kategori_id')
-            ->references('id')->on('kategori_obat')
-            ->onDelete('cascade')->onUpdate('cascade');
-
-            
-        });
+        
     }
 
     /**

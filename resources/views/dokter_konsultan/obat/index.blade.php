@@ -15,10 +15,7 @@
 
 
 	<div class="card mt-3">
-		<div class="card-body">
-			<a href="{{ action('DokterKonsultan\ObatController@create') }}" class="btn btn-primary">Tambah Obat</a>
-		</div>
-
+		
 		<table class="table">
 			<thead>
 				<tr>
@@ -31,7 +28,6 @@
 					<th>Indikasi</th>
 					<th>Dosis</th>
 					<th>Produsen</th>
-					<th width="180">Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -40,16 +36,13 @@
 					<td>0</td>
 					<td>{{ $obat->kode }}</td>
 					<td>{{ $obat->nama }}</td>
-					<td>{{ $obat->golongan->nama }}</td>
-					<td>{{ $obat->kategori->nama }}</td>
+					<td>{{ $obat->golongan }}</td>
+					<td>{{ $obat->kategori }}</td>
 					<td>{{ $obat->bentuk }}</td>
 					<td>{{ $obat->indikasi }}</td>
 					<td>{{ $obat->dosis }}</td> 
 					<td>{{ $obat->produsen }}</td>
-					<td> 
-				 	<a href="{{ action('DokterKonsultan\ObatController@edit', $obat->id) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Edit</a> 
-		 
-		    		</td>
+					
 				</tr>
 				@endforeach
 			</tbody>

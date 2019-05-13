@@ -72,27 +72,12 @@ class DatabaseSeeder extends Seeder
          // Seeder Obat
         
 
-        $golongan1 = new GolonganObat;
-        $golongan1->nama = 'paracetamol';
-        $golongan1->save();
-
-        $golongan2 = new GolonganObat;
-        $golongan2->nama = 'tramadol';
-        $golongan2->save();
-
-        $kategori1 = new KategoriObat;
-        $kategori1->nama = 'obat_keras';
-        $kategori1->save();
-
-        $kategori2 = new KategoriObat;
-        $kategori2->nama = 'obat_ringan';
-        $kategori2->save();
 
         $obat = new Obat;
         $obat->kode = 'yhc123';
         $obat->nama = 'DECADRYL EKSPEKTORAN';
-        $obat->golongan_id = $golongan1->id;
-        $obat->kategori_id = $kategori1->id;
+        $obat->golongan = 'Paracetamol';
+        $obat->kategori = 'Obat Keras';
         $obat->bentuk = 'sirup';
         $obat->indikasi = 'batuk, pilek, sesak nafas';
         $obat->dosis = 'sehat';

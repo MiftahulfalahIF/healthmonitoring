@@ -26,6 +26,7 @@ Route::get('/logout', 'LoginController@logout');
 
 Route::group(['prefix' => '/dokter_konsultan'], function(){
 	Route::get('/dashboard', 'DokterKonsultan\DashboardController@index');
+	Route::get('/monitoring', 'DokterKonsultan\MonitoringController@index');
 	Route::resource('/dokter', 'DokterKonsultan\DokterController');
 	Route::resource('/pasien', 'DokterKonsultan\PasienController');
 	Route::resource('/obat', 'DokterKonsultan\ObatController');

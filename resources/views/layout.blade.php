@@ -40,6 +40,9 @@
                             <a class="nav-link" href="{{ action('DokterKonsultan\DashboardController@index') }}">Dashboard <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">
+                            <a class="nav-link" href="{{ action('DokterKonsultan\MonitoringController@index') }}">Monitoring <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item active">
                             <a class="nav-link" href="{{ action('DokterKonsultan\DokterController@index') }}">Dokter <span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item active">

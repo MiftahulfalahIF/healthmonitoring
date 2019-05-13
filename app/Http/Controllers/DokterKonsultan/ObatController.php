@@ -38,41 +38,7 @@ class ObatController extends Controller
      */
     public function store(Request $request)
     {
-        $validatedData = $request->validate([
-            'kode' => 'required|unique:obat',
-            'nama' => 'required',
-            'bentuk' => 'required',
-            'indikasi' => 'required',
-            'dosis' => 'required',
-            'produsen' => 'required',
-            
-
-        ],
-        [
-            'kode.required' => 'Kode harus diisi',
-            'kode.unique' => 'KODE sudah terdaftar',
-            'nama.required' => 'Nama Obat harus diisi',
-            'bentuk.required' => 'Bentuk Obat harus diisi',
-            'indikasi.required' => 'Indikasi Obat harus diisi',
-            'dosis.required' => 'Dosis Obat harus diisi',
-            'produsen.required' => 'Produsen harus diisi',
-
-
-        ]);
-
-        $obat = new Obat;
-        
-        $obat->kode = $request->input('kode');
-        $obat->nama = $request->input('nama');
-        $obat->golongan = $request->input('golongan');
-        $obat->kategori = $request->input('kategori');
-        $obat->bentuk = $request->input('bentuk');
-        $obat->indikasi = $request->input('indikasi');
-        $obat->dosis = $request->input('dosis');
-        $obat->produsen = $request->input('produsen');
-        $obat->save();
-
-        return redirect()->action('DokterKonsultan\ObatController@index')->with ('msg', 'Data Berhasil Ditambahkan');
+       
     }
 
     /**
