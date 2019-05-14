@@ -51,6 +51,9 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="{{ action('DokterKonsultan\ObatController@index') }}">Obat <span class="sr-only">(current)</span></a>
                         </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{{ action('DokterKonsultan\EfekSampingController@index') }}">Efek Samping <span class="sr-only">(current)</span></a>
+                        </li>
                         @endif
 
                         <!--   login dpjp -->

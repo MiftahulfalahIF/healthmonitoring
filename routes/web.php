@@ -30,6 +30,8 @@ Route::group(['prefix' => '/dokter_konsultan'], function(){
 	Route::resource('/dokter', 'DokterKonsultan\DokterController');
 	Route::resource('/pasien', 'DokterKonsultan\PasienController');
 	Route::resource('/obat', 'DokterKonsultan\ObatController');
+	Route::resource('/efeksamping', 'DokterKonsultan\EfekSampingController');
+
 });
 
 Route::get('/dpjp/dashboard', 'Dpjp\DashboardController@index');
