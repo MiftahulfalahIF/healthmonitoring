@@ -16,13 +16,11 @@ class CreateMonitoringTable extends Migration
         Schema::create('monitoring', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->integer('pasien_id')->unsigned();
-            
             $table->integer('dokterkonsultan_id')->unsigned();
             $table->string('klinik_awal');
             $table->datetime ('tgl_dimulai');
-            $table->integer('masa_pengobatan');
-            $table->integer ('tahap_pengobatan');
-            $table->integer ('jml_oat')->nullable();
+            $table->integer('tahap_pengobatan');
+            $table->integer ('jml_kontrol');
             $table->enum('status_monitoring', ['Belum Dilakukan','Sedang Berjalan','Selesai','Drop Out']);
             $table->datetime ('tgl_kembali');
 
