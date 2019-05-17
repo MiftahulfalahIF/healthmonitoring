@@ -53,39 +53,21 @@
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="{{ asset('themes/img/user2-160x160.jpg') }}" class="user-image" alt="User Image">
-                                <span class="hidden-xs">Alexander Pierce</span>
+                                <span class="hidden-xs">{{ Auth::user()->nama }}</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
                                         <img src="{{ asset('themes/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
                                         <p>
-                                            Alexander Pierce - Web Developer
-                                            <small>Member since Nov. 2012</small>
+                                            {{ Auth::user()->nama }}
+                                            <small>Sejak, {{ date('m Y', strtotime(Auth::user()->created_at)) }}</small>
                                         </p>
-                                    </li>
-                                    <!-- Menu Body -->
-                                    <li class="user-body">
-                                        <div class="row">
-                                            <div class="col-xs-4 text-center">
-                                                <a href="#">Followers</a>
-                                            </div>
-                                            <div class="col-xs-4 text-center">
-                                                <a href="#">Sales</a>
-                                            </div>
-                                            <div class="col-xs-4 text-center">
-                                                <a href="#">Friends</a>
-                                            </div>
-                                        </div>
-                                        <!-- /.row -->
                                     </li>
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
-                                        <div class="pull-left">
-                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                        </div>
                                         <div class="pull-right">
-                                            <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                            <a href="{{ action('LoginController@logout') }}" class="btn btn-default btn-flat">Sign out</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -124,17 +106,17 @@
                             </li>
                             <li>
                                 <a href="{{ action('DokterKonsultan\PasienController@index') }}">
-                                    <i class="fa fa-user"></i> <span>Pasien</span>
+                                    <i class="fa fa-group"></i> <span>Pasien</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ action('DokterKonsultan\ObatController@index') }}">
-                                    <i class="fa fa-user"></i> <span>Pasien</span>
+                                    <i class="fa fa-medkit"></i> <span>Obat</span>
                                 </a>
                             </li>
                             <li>
                                 <a href="{{ action('DokterKonsultan\EfekSampingController@index') }}">
-                                    <i class="fa fa-user"></i> <span>Pasien</span>
+                                    <i class="fa fa-heartbeat"></i> <span>Efek Samping</span>
                                 </a>
                             </li>
                             @endif
@@ -143,12 +125,6 @@
                             @if ($user->role =='dpjp')
 
                             @endif
-
-                            <li>
-                                <a href="{{ action('LoginController@logout') }}">
-                                    <i class="fa fa-dashboard"></i> <span>Logout</span>
-                                </a>
-                            </li>
 
                         @endif
                     </ul>
