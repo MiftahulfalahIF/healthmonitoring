@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateObatTable extends Migration
+class CreateEfeksampingTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateObatTable extends Migration
      */
     public function up()
     {
-        Schema::create('obat', function (Blueprint $table) {
+        Schema::create('efeksamping', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateObatTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('obat');
+        Schema::dropIfExists('efeksamping');
     }
 }

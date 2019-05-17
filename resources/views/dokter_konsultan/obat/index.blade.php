@@ -15,73 +15,34 @@
 
 
 	<div class="card mt-3">
-		<div class="card-body">
-			<a href="{{ action('DokterKonsultan\DokterController@create') }}" class="btn btn-primary">Tambah Dokter</a>
-		</div>
-
+		
 		<table class="table">
 			<thead>
 				<tr>
 					<th>No</th>
-					<th>NIK</th>
-					<th>Nama</th>
-					<th>Status</th>
-					<th>Role</th>
-					<th>Email</th>
-					<th>Unit</th>
-					<th>Sub Unit</th>
-					<th>Telepon</th>
-					<th width="180">Aksi</th>
+					<th>Kode</th>
+					<th>Nama Obat</th>
+					<th>Golongan</th>
+					<th>Kategori</th>
+					<th>Bentuk Obat</th>
+					<th>Indikasi</th>
+					<th>Dosis</th>
+					<th>Produsen</th>
 				</tr>
 			</thead>
 			<tbody>
-				@foreach($dokters as $dokter)
+				@foreach($obats as $obat)
 				<tr>
 					<td>0</td>
-					<td>{{ $dokter->nik }}</td>
-					<td>{{ $dokter->nama }}</td>
-					<td>
-					@if($dokter->status=='aktif')
-					<div class="badge btn-success">Aktif</div>
-					@else
-					<div class="badge btn-danger">Nonaktif</div>
-					@endif
-				</td>
-					<td>
-					@if($dokter->role=='dpjp')
-					<div >DPJP</div>
-					@else
-					<div >Dokter Konsultan</div>
-					@endif
-					</td>
+					<td>{{ $obat->kode }}</td>
+					<td>{{ $obat->nama }}</td>
+					<td>{{ $obat->golongan }}</td>
+					<td>{{ $obat->kategori }}</td>
+					<td>{{ $obat->bentuk }}</td>
+					<td>{{ $obat->indikasi }}</td>
+					<td>{{ $obat->dosis }}</td> 
+					<td>{{ $obat->produsen }}</td>
 					
-					<td>{{ $dokter->email }}</td>
-					
-					<td>
-					@if($dokter->unit=='bedah')
-					<div >Bedah</div>
-					@elseif($dokter->unit=='paru')
-					<div >Paru</div>
-					@elseif($dokter->unit=='internis')
-					<div >Internis</div>
-					@else
-					<div>Syaraf</div>
-					@endif
-					</td>
-
-					<td>
-					@if($dokter->sub_unit=='umum')
-					<div >Umum</div>
-					@else
-					<div>Orthopedi</div>
-					@endif
-					</td>
-
-					<td>{{ $dokter->telepon }}</td>
-					<td>
-					<a href="{{ action('DokterKonsultan\DokterController@edit', $dokter->id) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Edit</a>
-		  <!--   <button onclick="hapus({{ $dokter->id }})" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Hapus</button> 	-->
-		    		</td>
 				</tr>
 				@endforeach
 			</tbody>
@@ -97,7 +58,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form style="text-align: left;" action="{{ action('DokterKonsultan\DokterController@index') }}" method="post">
+      <form style="text-align: left;" action="{{ action('DokterKonsultan\ObatController@index') }}" method="post">
         @csrf
         <input type="hidden" name="_method" value="DELETE">
         <div class="modal-body">

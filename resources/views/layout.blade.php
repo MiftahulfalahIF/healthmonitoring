@@ -127,8 +127,18 @@
                                     <i class="fa fa-user"></i> <span>Pasien</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{ action('DokterKonsultan\ObatController@index') }}">
+                                    <i class="fa fa-user"></i> <span>Pasien</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ action('DokterKonsultan\EfekSampingController@index') }}">
+                                    <i class="fa fa-user"></i> <span>Pasien</span>
+                                </a>
+                            </li>
                             @endif
-
+                            
                             <!--   login dpjp -->
                             @if ($user->role =='dpjp')
 

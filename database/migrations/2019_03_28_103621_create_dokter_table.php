@@ -20,6 +20,7 @@ class CreateDokterTable extends Migration
             $table->enum('role', ['dokter_konsultan', 'dpjp']);
             $table->string('nama');
             $table->string('nik');
+            $table->enum('status',['aktif','tidak_aktif'])->default('aktif');
             $table->enum('unit',['bedah','paru','internis','syaraf'])->nullable();
             $table->enum('sub_unit', ['umum','orthopedi'])->nullable();
             $table->string('telepon');

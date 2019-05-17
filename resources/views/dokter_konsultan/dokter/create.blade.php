@@ -1,25 +1,28 @@
 @extends('layout')
 
 @section('body')
+
+
+
 <div class="container" style="margin-top: 20px; text-align: center;">
 <div class="card" style="width: 18rem; margin: auto; text-align: left;">
   <div class="card-body">
-    <h5 class="card-title" style="text-align: center;">Login</h5>
+    <h5 class="card-title" style="text-align: center;">Tambah Dokter</h5>
 
 	<form action="{{ action('DokterKonsultan\DokterController@store') }}" method="post">
 		@csrf
 	  <div class="form-group">
-	    <label for="exampleInputPassword1">NIK</label>
-	    <input name="nik" type="nik" class="form-control" placeholder="Masukan NIK">
+	    <label >NIK</label>
+	    <input name="nik" value="{{ old('nik') }}" class="form-control" placeholder="Masukan NIK">
 	    @if ($errors->has('nik'))
-	    	<div>{{  $errors->first('nik') }}</div>
+	    	<div style="color: #ff0000">{{  $errors->first('nik') }}</div>
 	    @endif
 	  </div >
 	  <div class="form-group">
-	    <label for="exampleInputPassword1">Nama</label>
-	    <input name="nama" type="nama" class="form-control" placeholder="Masukan Nama">
+	    <label >Nama</label>
+	    <input name="nama" value="{{ old('nama') }}" class="form-control" placeholder="Masukan Nama">
 	    @if ($errors->has('nama'))
-	    	<div>{{  $errors->first('nama') }}</div>
+	    	<div style="color: #ff0000">{{  $errors->first('nama') }}</div>
 	    @endif
 	  </div >
 	 <div class="form-group">
@@ -30,10 +33,17 @@
 	 	</select>
 	 </div>
 	  <div class="form-group">
-	    <label for="exampleInputPassword1">Email</label>
-	    <input name="email" class="form-control" placeholder="Masukan Email">
+	 	<label> Status </label>
+	 	<select name="status" class="form-control">
+	 		<option value="aktif">Aktif</option>
+	 		<option value="tidak_aktif">Nonaktif</option>
+	 	</select>
+	 </div>
+	  <div class="form-group">
+	    <label >Email</label>
+	    <input name="email" value="{{old('email')}}" class="form-control" placeholder="Masukan Email">
 	    @if ($errors->has('email'))
-	    	<div>{{  $errors->first('email') }}</div>
+	    	<div style="color: #ff0000">{{  $errors->first('email') }}</div>
 	    @endif
 	  </div >
 	 <div class="form-group">
@@ -53,10 +63,10 @@
 	 	</select>
 	 </div>
 	  <div class="form-group">
-	    <label for="exampleInputPassword1">Telepon</label>
-	    <input name="telepon" type="telepon" class="form-control" placeholder="Masukan No Telepon">
+	    <label >Telepon</label>
+	    <input name="telepon" value="{{old('telepon')}}" class="form-control" placeholder="Masukan No Telepon">
 	    @if ($errors->has('telepon'))
-	    	<div>{{  $errors->first('telepon') }}</div>
+	    	<div style="color: #ff0000">{{  $errors->first('telepon') }}</div>
 	    @endif
 	  </div >
 

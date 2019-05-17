@@ -18,6 +18,7 @@ class CreatePasienTable extends Migration
             $table->string('email', 100)->unique();
             $table->string('password');
             $table->string('no_rekam');
+            $table->enum('status',['aktif','tidak_aktif'])->default('aktif');
             $table->string('nama');
             $table->string('nik');
             $table->string('alamat');
