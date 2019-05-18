@@ -43,4 +43,6 @@ class Dokter extends Authenticatable
     {
         return $this->hasMany('App\Monitoring');
     }
+
+    
 }

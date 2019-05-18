@@ -98,6 +98,11 @@
                                 <a href="{{ action('DokterKonsultan\DashboardController@index') }}">
                                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                                 </a>
+                            </li> 
+                            <li>
+                                <a href="{{ action('DokterKonsultan\MonitoringController@index') }}">
+                                    <i class="fa fa-clone"></i> <span>Monitoring</span>
+                                </a>
                             </li>
                             <li>
                                 <a href="{{ action('DokterKonsultan\DokterController@index') }}">

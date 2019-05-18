@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         $dokter->email = 'dokter_konsultan@healthmonitoring.com';
         $dokter->password = bcrypt('12345');
         $dokter->role = 'dokter_konsultan';
-        $dokter->nama = 'Syifa Samsara';
+        $dokter->nama = 'Syifa Sofiana';
         $dokter->nik = '111111';
         $dokter->status = 'aktif';
         $dokter->unit = 'bedah';

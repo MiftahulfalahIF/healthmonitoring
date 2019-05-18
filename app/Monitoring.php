@@ -12,4 +12,9 @@ class Monitoring extends Model
     {
         return $this->belongsTo('App\Dokter', '');
     }
+
+     public function pasien()
+    {
+        return $this->belongsTo('App\Pasien', '');
+    }
 }
