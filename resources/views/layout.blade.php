@@ -119,11 +119,6 @@
                                     <i class="fa fa-medkit"></i> <span>Obat</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="{{ action('DokterKonsultan\EfekSampingController@index') }}">
-                                    <i class="fa fa-heartbeat"></i> <span>Efek Samping</span>
-                                </a>
-                            </li>
                             @endif
                             
                             <!--   login dpjp -->

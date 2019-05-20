@@ -10,13 +10,7 @@
 
     <form action="{{ action('DokterKonsultan\MonitoringController@store') }}" method="post">
 		@csrf
-	  <div class="form-group">
-	    <label >No Monitoring</label>
-	    <input name="no_monitoring" value="{{ old('no_monitoring') }}" class="form-control" placeholder="Masukan  No Monitoring">
-	    @if ($errors->has('no_monitoring'))
-	    	<div style="color: #ff0000">{{  $errors->first('no_monitoring') }}</div>
-	    @endif
-	  </div >
+	  
 	  <div class="form-group">
 	  	<label >Nama Pasien</label>
 	  	<select class="form-control" name="pasien">

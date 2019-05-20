@@ -26,8 +26,6 @@
 					<th>Dokter Konsultan</th>
 					<th>Klinik Awal</th>
 					<th>Tanggal Dimulai</th>
-					<th>Tahap Pengobatan</th>
-					<th>Kontrol Yang Harus Dilakukan</th>
 					<th>Status Monitoring</th>
 					<th width="180">Aksi</th>
 				</tr>
@@ -40,7 +38,6 @@
 					<td>{{ $monitoring->dokter_konsultan->nama }}</td>
 					<td>{{ $monitoring->klinik_awal }}</td>
 					<td>TANGGAL DIMULAI </td>
-					<td>{{ $monitoring->tahap_pengobatan }}</td>
 					<td>
 					@if($monitoring->status=='belum')
 					<div class="badge btn-success">Belum Dilakukan</div>
