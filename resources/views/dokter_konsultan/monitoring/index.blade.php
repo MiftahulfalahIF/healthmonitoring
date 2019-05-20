@@ -21,7 +21,6 @@
 		<table class="table">
 			<thead>
 				<tr>
-					<th>No</th>
 					<th>Nomor Monitoring</th>
 					<th>Nama Pasien</th>
 					<th>Dokter Konsultan</th>
@@ -36,10 +35,9 @@
 			<tbody>
 				@foreach($monitorings as $monitoring)
 				<tr>
-					<td>0</td>
 					<td>{{ $monitoring->no_monitoring}}</td>
 					<td>{{ $monitoring->pasien->nama }}</td>
-					<td>{{ $monitoring->dokterkonsultan->nama }}</td>
+					<td>{{ $monitoring->dokter_konsultan->nama }}</td>
 					<td>{{ $monitoring->klinik_awal }}</td>
 					<td>TANGGAL DIMULAI </td>
 					<td>{{ $monitoring->tahap_pengobatan }}</td>
@@ -58,10 +56,13 @@
 					@endif
 				</td>
 					
-				<!-- 
+				
 					<td>
+						<?php /*
 					<a href="{{ action('DokterKonsultan\DokterController@edit', $dokter->id) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Edit</a>
-		    <button onclick="hapus({{ $dokter->id }})" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Hapus</button> 	-->
+		    <button onclick="hapus({{ $dokter->id }})" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Hapus</button> 
+
+		    		*/ ?>
 		    		</td>
 				</tr>
 				@endforeach

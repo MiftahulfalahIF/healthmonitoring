@@ -15,7 +15,7 @@ class CreateMonitoringTable extends Migration
     {
         Schema::create('monitoring', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->string('no_monitoring');
+            $table->string('no_monitoring')->nullabale()->default("");
             $table->integer('pasien_id')->unsigned();
             $table->integer('dokterkonsultan_id')->unsigned();
             $table->string('klinik_awal');

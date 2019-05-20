@@ -10,11 +10,11 @@ class Monitoring extends Model
 
      public function dokter_konsultan()
     {
-        return $this->belongsTo('App\Dokter', '');
+        return $this->belongsTo('App\Dokter', 'dokterkonsultan_id');
     }
 
      public function pasien()
     {
-        return $this->belongsTo('App\Pasien', '');
+        return $this->belongsTo('App\Pasien', 'pasien_id');
     }
 }
