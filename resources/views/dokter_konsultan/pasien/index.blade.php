@@ -3,14 +3,14 @@
 @section('body')
 
 <div class="container-fluid">
-@if(Session::has('msg'))
-        <div class="alert alert-success mt-3">
-          {{ session('msg') }}
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        @endif
+	@if(Session::has('msg'))
+    <div class="alert alert-success mt-3">
+      {{ session('msg') }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    @endif
 
 
 	<div class="card mt-3">
@@ -44,49 +44,51 @@
 			<tbody>
 				@foreach($pasiens as $pasien)
 				<tr>
-				<td>0</td>
-				<td>{{ $pasien->nik }}</td>
-				<td>{{ $pasien->nama }}</td>
-				<td>
-					@if($pasien->status=='aktif')
-					<div class="badge btn-success">Aktif</div>
-					@else
-					<div class="badge btn-danger">Nonaktif</div>
-					@endif
-				</td>
-				<td>{{ $pasien->no_rekam }}</td>
-				<td>{{ $pasien->email }}</td>
-				<td>{{ $pasien->alamat }}</td>
-				<td>
-					@if($pasien->jk=='l')
-					<div >Laki-Laki</div>
-					@else
-					<div >Perempuan</div>
-					@endif
-				</td>
-				<td>
-					@if($pasien->wanita_subur=='hamil')
-					<div >Hamil</div>
-					@else
-					<div >Tidak Hamil</div>
-					@endif
-				</td>
-				<td>{{ $pasien->tgl_lahir }}</td>
-				<td>{{ $pasien->bb}}</td>
-				<td>{{ $pasien->tb }}</td>
-				<td>{{ $pasien->bentuk_obat }}</td>
-				<td>{{ $pasien->telepon }}</td>
-				<td>{{ $pasien->nama_pmo }}</td>
-				<td>{{ $pasien->nik_pmo }}</td>
-				<td>{{ $pasien->tlp_pmo }}</td>
-				<td>
-				<a href="{{ action('DokterKonsultan\PasienController@edit', $pasien->id) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Edit</a>
-		<!--     <button onclick="hapus({{ $pasien->id }})" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Hapus</button> -->
-		    		</td>
-			</tr>
-		@endforeach
-	</tbody>
-</table>
+					<td>0</td>
+					<td>{{ $pasien->nik }}</td>
+					<td>{{ $pasien->nama }}</td>
+					<td>
+						@if($pasien->status=='aktif')
+						<div class="badge btn-success">Aktif</div>
+						@else
+						<div class="badge btn-danger">Nonaktif</div>
+						@endif
+					</td>
+					<td>{{ $pasien->no_rekam }}</td>
+					<td>{{ $pasien->email }}</td>
+					<td>{{ $pasien->alamat }}</td>
+					<td>
+						@if($pasien->jk=='l')
+						<div >Laki-Laki</div>
+						@else
+						<div >Perempuan</div>
+						@endif
+					</td>
+					<td>
+						@if($pasien->wanita_subur=='hamil')
+						<div >Hamil</div>
+						@else
+						<div >Tidak Hamil</div>
+						@endif
+					</td>
+					<td>{{ $pasien->tgl_lahir }}</td>
+					<td>{{ $pasien->bb}}</td>
+					<td>{{ $pasien->tb }}</td>
+					<td>{{ $pasien->bentuk_obat }}</td>
+					<td>{{ $pasien->telepon }}</td>
+					<td>{{ $pasien->nama_pmo }}</td>
+					<td>{{ $pasien->nik_pmo }}</td>
+					<td>{{ $pasien->tlp_pmo }}</td>
+					<td>
+						<a href="{{ action('DokterKonsultan\PasienController@edit', $pasien->id) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Edit</a>
+			    	</td>
+				</tr>
+				@endforeach
+			</tbody>
+		</table>
+	</div>
+</div>
+
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -112,14 +114,12 @@
 </div>
 
 
-
-
 <script type="text/javascript">
-    function hapus(id) {
-      $('#deleteModal').modal('show');
-      var action = $('#deleteModal form').attr('action');
-      $('#deleteModal form').attr('action', action+'/'+id);
-    }
-  </script>
+function hapus(id) {
+  $('#deleteModal').modal('show');
+  var action = $('#deleteModal form').attr('action');
+  $('#deleteModal form').attr('action', action+'/'+id);
+}
+</script>
 
 @endsection
