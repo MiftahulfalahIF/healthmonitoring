@@ -33,7 +33,7 @@
 			<tbody>
 				@foreach($obats as $obat)
 				<tr>
-					<td>0</td>
+					<td>{{$obat->id}}</td>
 					<td>{{ $obat->kode }}</td>
 					<td>{{ $obat->nama }}</td>
 					<td>{{ $obat->golongan }}</td>
