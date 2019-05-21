@@ -54,7 +54,7 @@ if(old('sub_unit')!=null){
 		@csrf
 		<input type="hidden" name="_method" value="PUT">
 	  <div class="form-group">
-	    <label for="exampleInputPassword1">NIK</label>
+	    <label >NIK</label>
 	    <input name="nik" value="{{$nik}}" type="nik" class="form-control" placeholder="Masukan NIK">
 	    @if ($errors->has('nik'))
 	    	<div style="color: #ff0000">{{  $errors->first('nik') }}</div>

@@ -12,11 +12,12 @@
     </div>
     @endif
 
-
-	<div class="card mt-3">
+    <div class="card mt-3">
 		<div class="card-body">
 			<a href="{{ action('DokterKonsultan\PasienController@create') }}" class="btn btn-primary">Tambah Pasien</a>
 		</div>
+
+
 
 		<table class="table">
 			<thead>
