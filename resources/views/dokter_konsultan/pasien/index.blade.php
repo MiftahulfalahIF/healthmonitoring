@@ -115,12 +115,6 @@
 </div>
 
 
-<script type="text/javascript">
-function hapus(id) {
-  $('#deleteModal').modal('show');
-  var action = $('#deleteModal form').attr('action');
-  $('#deleteModal form').attr('action', action+'/'+id);
-}
-</script>
+
 
 @endsection
