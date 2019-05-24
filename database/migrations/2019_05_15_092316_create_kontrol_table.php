@@ -15,6 +15,7 @@ class CreateKontrolTable extends Migration
     {
         Schema::create('kontrol', function (Blueprint $table) {
             $table->increments('id')->unsigned();
+            $table->string('no_kontrol')->nullabale()->default("");
             $table->integer('monitoring_id')->unsigned();
             $table->integer('pasien_id')->unsigned();
             $table->integer('dpjp_id')->unsigned();

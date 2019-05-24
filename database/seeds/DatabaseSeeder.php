@@ -6,7 +6,8 @@ use App\Pasien;
 use App\Obat;
 use App\GolonganObat;
 use App\KategoriObat;
-
+use App\Monitoring;
+use App\kontrol;
 
 class DatabaseSeeder extends Seeder
 {
@@ -84,6 +85,18 @@ class DatabaseSeeder extends Seeder
         $obat->produsen = 'Harsen';
         $obat->save();
 
+        $monitoring = new Monitoring;
+        $monitoring->no_monitoring= '1';
+        $monitoring->pasien_id = $pasien->id;
+        $monitoring->dokterkonsultan_id = $dokter->id;
+        $monitoring->klinik_awal = 'paru';
+        $monitoring->tgl_mulai = '2019-05-24';
+        $monitoring->tahap_pengobatan = '8';
+        $monitoring->jml_kontrol = '8';
+        $monitoring->status = 'berjalan';
+        $monitoring->save();
+
+       
 
     }
 }

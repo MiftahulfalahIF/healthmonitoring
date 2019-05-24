@@ -1,25 +1,31 @@
 @extends('layout')
 
 @section('body')
+<section class="content-header">
+    <h1>
+        Pasien
+    </h1>
+</section>
 
-<div class="container-fluid">
-	@if(Session::has('msg'))
-    <div class="alert alert-success mt-3">
-      {{ session('msg') }}
-      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-    </div>
-    @endif
+<section class="content">
+	<div class="box">
+		<div class="box-header with-border">
+            <h3 class="box-title">Tabel Pasien</h3>
+            <div class="box-tools">
+            	<a href="{{ action('DokterKonsultan\PasienController@create') }}" class="btn btn-sm btn-primary">Tambah Pasien</a>
+            </div>
+        </div>
+		<div class="box-body">
+    		@if(Session::has('msg'))
+	        <div class="alert alert-success mt-3">
+				{{ session('msg') }}
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+	        </div>
+	        @endif
 
-    <div class="card mt-3">
-		<div class="card-body">
-			<a href="{{ action('DokterKonsultan\PasienController@create') }}" class="btn btn-primary">Tambah Pasien</a>
-		</div>
-
-
-
-		<table class="table">
+		<table class="table table-bordered">
 			<thead>
 				<tr>
 					<th>No</th>
@@ -57,7 +63,8 @@
 					<td>{{ $pasien->telepon }}</td>
 					<td>{{ $pasien->nama_pmo }}</td>
 					<td>
-						<a href="{{ action('DokterKonsultan\PasienController@edit', $pasien->id) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Edit</a>
+						<a href="{{ action('DokterKonsultan\PasienController@edit', $pasien->id) }}" class="btn btn-xs btn-primary btn-sm active" role="button" aria-pressed="true">Edit</a>
+						<a href="{{ action('DokterKonsultan\PasienController@show', $pasien->id) }}" class="btn btn-xs btn-primary btn-sm active" role="button" aria-pressed="true">Detail</a>
 			    	</td>
 				</tr>
 				@endforeach

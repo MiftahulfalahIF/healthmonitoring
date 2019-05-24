@@ -47,6 +47,20 @@
         				<td>: {{ $monitoring->status}}</td>
         			</tr>
         		</table>
+                <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>No Kontrol</th>
+                        <th>Nama Pasien</th>
+                        <th>DPJP</th>
+                        <th>Tanggal Kontrol</th>
+                        <th width="60">Aksi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                
+                </tbody>
+                </table>
         	</div>
         </div>
 
