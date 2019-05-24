@@ -221,4 +221,13 @@ class PasienController extends Controller
         return redirect()->action('DokterKonsultan\PasienController@index')->with('msg', 'Data berhasil dihapus');
 
     }
+
+ public function show($id)
+    {
+        $pasien = Pasien::find($id);
+
+        return view('dokter_konsultan.pasien.show')->with('pasien', $pasien);
+    }
+
 }
+

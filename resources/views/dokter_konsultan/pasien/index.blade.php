@@ -23,22 +23,13 @@
 			<thead>
 				<tr>
 					<th>No</th>
-					<th>NIK</th>
 					<th>Nama Pasien</th>
 					<th>Status</th>
 					<th>No.Rekam Medis</th>
-					<th>Email</th>
 					<th>Alamat</th>
 					<th>Jenis Kelamin</th>
-					<th>Wanita Subur</th>
-					<th>Tanggal Lahir</th>
-					<th>Berat Badan</th>
-					<th>Tinggi Badan</th>
-					<th>Bentuk Obat</th>
 					<th>Telepon</th>
-					<th>Nama PMO</th>
-					<th>NIK PMO</th>
-					<th>Telepon PMO</th>
+					<th>Nama PMO </th>
 					<th width="180">Aksi</th>
 				</tr>
 			</thead>
@@ -46,7 +37,6 @@
 				@foreach($pasiens as $pasien)
 				<tr>
 					<td>{{$pasien->id}}</td>
-					<td>{{ $pasien->nik }}</td>
 					<td>{{ $pasien->nama }}</td>
 					<td>
 						@if($pasien->status=='aktif')
@@ -56,7 +46,6 @@
 						@endif
 					</td>
 					<td>{{ $pasien->no_rekam }}</td>
-					<td>{{ $pasien->email }}</td>
 					<td>{{ $pasien->alamat }}</td>
 					<td>
 						@if($pasien->jk=='l')
@@ -65,21 +54,8 @@
 						<div >Perempuan</div>
 						@endif
 					</td>
-					<td>
-						@if($pasien->wanita_subur=='hamil')
-						<div >Hamil</div>
-						@else
-						<div >Tidak Hamil</div>
-						@endif
-					</td>
-					<td>{{ $pasien->tgl_lahir }}</td>
-					<td>{{ $pasien->bb}}</td>
-					<td>{{ $pasien->tb }}</td>
-					<td>{{ $pasien->bentuk_obat }}</td>
 					<td>{{ $pasien->telepon }}</td>
 					<td>{{ $pasien->nama_pmo }}</td>
-					<td>{{ $pasien->nik_pmo }}</td>
-					<td>{{ $pasien->tlp_pmo }}</td>
 					<td>
 						<a href="{{ action('DokterKonsultan\PasienController@edit', $pasien->id) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Edit</a>
 			    	</td>
