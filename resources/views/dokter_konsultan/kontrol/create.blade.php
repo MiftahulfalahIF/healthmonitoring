@@ -38,7 +38,43 @@
 	@endforeach 
 		</select>
 	   </div>
-	   
+	   <div class="form-group">
+	   	<label>Dosis </label>
+	   	<input name="dosis_jadwal" value="{{old('dosis_jadwal')}}" class="form-control" placeholder="Masukan Hari">
+	    @if ($errors->has('dosis_jadwal'))
+	    	<div style="color: #ff0000">{{  $errors->first('dosis_jadwal') }}</div>
+	    @endif
+	   </div>
+	   <div class="form-group">
+	   	<input name="dosis_jumlah" value="{{old('dosis_jumlah')}}" class="form-control" placeholder="Jumlah Konsumsi Harian">
+	    @if ($errors->has('dosis_jumlah'))
+	    	<div style="color: #ff0000">{{  $errors->first('dosis_jumlah') }}</div>
+	    @endif
+	   </div>
+
+				<div class="form-group">
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="aturan_pakai" id="aturan_pakai1" value="sebelum_makan" checked="">
+                      Sebelum Makan
+                    </label>
+                  </div>
+                  <div class="radio">
+                    <label>
+                      <input type="radio" name="aturan_pakai" id="aturan_pakai2" value="sesudah_makan">
+                      Sesudah Makan
+                    </label>
+                  </div>
+                </div>
+
+	 <div class="form-group">
+	   	<label>Jumalah Obat yang diberikan </label>
+	   	<input name="jumlah_obat" value="{{old('jumlah_obat')}}" class="form-control" placeholder="Masukan Jumlah Obat">
+	    @if ($errors->has('jumlah_obat'))
+	    	<div style="color: #ff0000">{{  $errors->first('jumlah_obat') }}</div>
+	    @endif
+	   </div>
+
 	  @if(Session::has('msg'))
 	  <div style="color: red; font-size: 0.8em; margin-bottom: 10px; ">
 	  	{{ session('msg')}}
