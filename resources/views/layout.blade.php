@@ -115,11 +115,11 @@
                                     <i class="fa fa-group"></i> <span>Pasien</span>
                                 </a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="{{ action('DokterKonsultan\ObatController@index') }}">
                                     <i class="fa fa-medkit"></i> <span>Obat</span>
                                 </a>
-                            </li>
+                            </li> -->
                             @endif
                             
                             <!--   login dpjp -->

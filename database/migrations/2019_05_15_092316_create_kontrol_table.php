@@ -19,6 +19,9 @@ class CreateKontrolTable extends Migration
             $table->integer('monitoring_id')->unsigned();
             $table->integer('pasien_id')->unsigned();
             $table->integer('dpjp_id')->unsigned();
+            $table->date("tgl_kontrol");
+            $table->date("tgl_kembali");
+
             $table->timestamps();
         });
 

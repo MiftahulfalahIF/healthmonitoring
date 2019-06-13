@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('body')
-<section class="content-header">
+<section  class="content-header">
       <h1>Login</h1>
 </section>
 <section class="content">

@@ -1,24 +1,31 @@
 @extends('layout')
 
 @section('body')
-<div class="container-fluid">
-@if(Session::has('msg'))
-        <div class="alert alert-success mt-3">
-          {{ session('msg') }}
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+<section class="content-header">
+    <h1>
+        Monitoring
+    </h1>
+</section>
+
+<section class="content">
+	<div class="box">
+		<div class="box-header with-border">
+            <h3 class="box-title">Tabel Monitoring</h3>
+            <div class="box-tools">
+            	<a href="{{ action('DokterKonsultan\MonitoringController@create') }}" class="btn btn-sm btn-primary">Tambah Monitoring</a>
+            </div>
         </div>
-        @endif
+    	<div class="box-body">
+    		@if(Session::has('msg'))
+	        <div class="alert alert-success mt-3">
+				{{ session('msg') }}
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+	        </div>
+	        @endif
 
-
-
-	<div class="card mt-3">
-		<div class="card-body">
-			<a href="{{ action('DokterKonsultan\MonitoringController@create') }}" class="btn btn-primary">Tambah Monitoring</a>
-		</div>
-
-		<table class="table">
+		<table class="table table-bordered">
 			<thead>
 				<tr>
 					<th>Nomor Monitoring</th>
@@ -26,7 +33,7 @@
 					<th>Klinik Awal</th>
 					<th>Tanggal Dimulai</th>
 					<th>Status Monitoring</th>
-					<th width="180">Aksi</th>
+					<th width="160">Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -52,7 +59,7 @@
 				</td>
 					<td>
 					<a href="{{ action('DokterKonsultan\MonitoringController@edit', $monitoring->id) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Edit</a>
-					<a href="{{ action('DokterKonsultan\MonitoringController@show', $monitoring->id) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Lihat Detail</a>
+					<a href="{{ action('DokterKonsultan\MonitoringController@show', $monitoring->id) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Kontrol</a>
 					</td>
 					
 				

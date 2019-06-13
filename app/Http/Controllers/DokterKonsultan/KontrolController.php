@@ -4,6 +4,8 @@ namespace App\Http\Controllers\DokterKonsultan;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Kontrol;
+use App\Monitoring;
 
 class KontrolController extends Controller
 {
@@ -12,9 +14,13 @@ class KontrolController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($monitoring_id)
     {
-        //
+        $monitoring = Monitoring::find($monitoring_id);
+
+        $kontrol = new Kontrol;
+        return view('dokter_konsultan.kontrol.create')->with('monitoring_id', $monitoring_id)
+        ->with('pasien_nama', $monitoring->pasien->nama);
     }
 
     /**
@@ -23,9 +29,19 @@ class KontrolController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $monitoring_id)
     {
-        //
+        $monitoring = Monitoring::find($monitoring_id);
+
+        $kontrol = new Kontrol;
+        $kontrol->monitoring_id =$monitoring->id;
+        $kontrol->pasien_id =$monitoring->pasien_id;
+        $kontrol->dpjp_id =$request->input('dokter');
+        $kontrol->tgl_kontrol =$request->input('tgl_kontrol');
+        $kontrol-> save();
+
+        $kontrol->no_kontrol = $kontrol->id."/Kontrol/".$kontrol->dpjp_id."/".date('d/m/Y', strtotime($kontrol->tgl_kontrol));
+        $kontrol->save();
     }
 
     /**

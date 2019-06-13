@@ -17,4 +17,10 @@ class Monitoring extends Model
     {
         return $this->belongsTo('App\Pasien', 'pasien_id');
     }
+
+    public function kontrols()
+    {
+    	return $this->hasMany('App\Kontrol');
+    }
 }
+

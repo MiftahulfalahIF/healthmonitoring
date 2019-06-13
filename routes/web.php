@@ -32,7 +32,11 @@ Route::group(['prefix' => '/dokter_konsultan'], function(){
 	Route::resource('/obat', 'DokterKonsultan\ObatController');
 	Route::resource('/efeksamping', 'DokterKonsultan\EfekSampingController');
 	Route::resource('/monitoring', 'DokterKonsultan\MonitoringController');
-	Route::resource('/kontrol', 'DokterKonsultan\KontrolController');
+
+	Route::group(['prefix' => '/kontrol'], function(){
+		Route::get('/create/{monitoring_id}', 'DokterKonsultan\KontrolController@create');
+		Route::post('/store/{monitoring_id}', 'DokterKonsultan\KontrolController@store');
+	});
 
 
 });

@@ -10,7 +10,7 @@
           </button>
         </div>
         @endif
-
+        
         <div class="panel">
         	<div class="panel-body">
         		<table>
@@ -47,17 +47,20 @@
         				<td>: {{ $monitoring->status}}</td>
         			</tr>
         		</table>
+                <div class="card-body">
+                     <a href="{{ action('DokterKonsultan\KontrolController@create', [$monitoring->id]) }}" class="btn btn-primary">Tambah Kontrol</a>
+                </div>
+        
                 <table class="table table-bordered">
                 <thead>
                     <tr>
                         <th>No Kontrol</th>
-                        <th>Nama Pasien</th>
                         <th>DPJP</th>
                         <th>Tanggal Kontrol</th>
                         <th width="60">Aksi</th>
                     </tr>
-                </thead>
-                <tbody>
+                    </thead>
+               
                 
                 </tbody>
                 </table>
