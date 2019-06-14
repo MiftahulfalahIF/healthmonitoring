@@ -126,7 +126,7 @@
 			<div class="form-group">
 			    <label class="col-sm-3 control-label">Jumalah Obat yang diberikan </label>
 			    <div class="col-sm-9">
-				    <input name="jumlah_obat" value="{{old('jumlah_obat')}}" class="form-control" placeholder="Masukan Jumlah Obat">
+				    <input type="number" name="jumlah_obat" value="{{old('jumlah_obat')}}" class="form-control" placeholder="Masukan Jumlah Obat">
 				    @if ($errors->has('jumlah_obat'))
 				    <div style="color: #ff0000">{{  $errors->first('jumlah_obat') }}</div>
 				    @endif
