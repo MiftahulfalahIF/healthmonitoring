@@ -1,14 +1,13 @@
 @extends('layout')
 
 @section('body')
-
 <section class="content-header">
     <h1>
         Tambah Kontrol
     </h1>
 </section>
 
-<form action="{{ action('DokterKonsultan\KontrolController@store', [$monitoring_id]) }}" method="post" class="form-horizontal">
+<form action="{{ action('DokterKonsultan\KontrolController@store', [$monitoring_id]) }}" method="post">
 @csrf
 
 <section class="content">
@@ -148,8 +147,16 @@
         </div>
 
         <div class="box-body">
-        	<table class="table">
-        		
+        	<table class="table table-bordered">
+        		<thead>
+        			<tr>
+        				<th>Nama Obat</th>
+        				<th>Dosis</th>
+        				<th>Aturan Pakai</th>
+        				<th>Jumlah Obat yang diberikan</th>
+        				<th width="60">Aksi</th>
+        			</tr>
+        		</thead>
         	</table>
         </div>
 
