@@ -1,13 +1,14 @@
 @extends('layout')
 
 @section('body')
+
 <section class="content-header">
     <h1>
         Tambah Kontrol
     </h1>
 </section>
 
-<form action="{{ action('DokterKonsultan\KontrolController@store', [$monitoring_id]) }}" method="post">
+<form action="{{ action('DokterKonsultan\KontrolController@store', [$monitoring_id]) }}" method="post" class="form-horizontal">
 @csrf
 
 <section class="content">

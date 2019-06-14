@@ -2,11 +2,10 @@
 
 @section('body')
 <section  class="content-header">
-      <h1>Login</h1>
 </section>
 <section class="content">
 	<div class="row">
-		<div class="col-md-4">
+		<div class="col-md-4 col-md-offset-4">
 	    	<!-- general form elements -->
 		    <div class="box box-primary">
 		        <div class="box-header with-border">
