@@ -17,6 +17,7 @@
         <!-- AdminLTE Skins. Choose a skin from the css/skins
             folder instead of downloading all of them to reduce the load. -->
         <link rel="stylesheet" href="{{ asset('themes/css/skins/_all-skins.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -53,39 +54,21 @@
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <img src="{{ asset('themes/img/user2-160x160.jpg') }}" class="user-image" alt="User Image">
-                                <span class="hidden-xs">Alexander Pierce</span>
+                                <span class="hidden-xs">{{ Auth::user()->nama }}</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
                                     <li class="user-header">
                                         <img src="{{ asset('themes/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
                                         <p>
-                                            Alexander Pierce - Web Developer
-                                            <small>Member since Nov. 2012</small>
+                                            {{ Auth::user()->nama }}
+                                            <small>Sejak, {{ date('m Y', strtotime(Auth::user()->created_at)) }}</small>
                                         </p>
-                                    </li>
-                                    <!-- Menu Body -->
-                                    <li class="user-body">
-                                        <div class="row">
-                                            <div class="col-xs-4 text-center">
-                                                <a href="#">Followers</a>
-                                            </div>
-                                            <div class="col-xs-4 text-center">
-                                                <a href="#">Sales</a>
-                                            </div>
-                                            <div class="col-xs-4 text-center">
-                                                <a href="#">Friends</a>
-                                            </div>
-                                        </div>
-                                        <!-- /.row -->
                                     </li>
                                     <!-- Menu Footer-->
                                     <li class="user-footer">
-                                        <div class="pull-left">
-                                            <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                        </div>
                                         <div class="pull-right">
-                                            <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                            <a href="{{ action('LoginController@logout') }}" class="btn btn-default btn-flat">Sign out</a>
                                         </div>
                                     </li>
                                 </ul>
@@ -116,6 +99,11 @@
                                 <a href="{{ action('DokterKonsultan\DashboardController@index') }}">
                                     <i class="fa fa-dashboard"></i> <span>Dashboard</span>
                                 </a>
+                            </li> 
+                            <li>
+                                <a href="{{ action('DokterKonsultan\MonitoringController@index') }}">
+                                    <i class="fa fa-clone"></i> <span>Monitoring</span>
+                                </a>
                             </li>
                             <li>
                                 <a href="{{ action('DokterKonsultan\DokterController@index') }}">
@@ -124,31 +112,20 @@
                             </li>
                             <li>
                                 <a href="{{ action('DokterKonsultan\PasienController@index') }}">
-                                    <i class="fa fa-user"></i> <span>Pasien</span>
+                                    <i class="fa fa-group"></i> <span>Pasien</span>
                                 </a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="{{ action('DokterKonsultan\ObatController@index') }}">
-                                    <i class="fa fa-user"></i> <span>Pasien</span>
+                                    <i class="fa fa-medkit"></i> <span>Obat</span>
                                 </a>
-                            </li>
-                            <li>
-                                <a href="{{ action('DokterKonsultan\EfekSampingController@index') }}">
-                                    <i class="fa fa-user"></i> <span>Pasien</span>
-                                </a>
-                            </li>
+                            </li> -->
                             @endif
                             
                             <!--   login dpjp -->
                             @if ($user->role =='dpjp')
 
                             @endif
-
-                            <li>
-                                <a href="{{ action('LoginController@logout') }}">
-                                    <i class="fa fa-dashboard"></i> <span>Logout</span>
-                                </a>
-                            </li>
 
                         @endif
                     </ul>

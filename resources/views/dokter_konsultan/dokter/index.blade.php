@@ -1,93 +1,101 @@
 @extends('layout')
 
 @section('body')
+<section class="content-header">
+    <h1>
+        Dokter
+    </h1>
+</section>
 
-<div class="container-fluid">
-@if(Session::has('msg'))
-        <div class="alert alert-success mt-3">
-          {{ session('msg') }}
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
+<section class="content">
+	<div class="box">
+		<div class="box-header with-border">
+            <h3 class="box-title">Tabel Dokter</h3>
+            <div class="box-tools">
+            	<a href="{{ action('DokterKonsultan\DokterController@create') }}" class="btn btn-sm btn-primary">Tambah Dokter</a>
+            </div>
         </div>
-        @endif
+    	<div class="box-body">
+    		@if(Session::has('msg'))
+	        <div class="alert alert-success mt-3">
+				{{ session('msg') }}
+				<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+	        </div>
+	        @endif
 
-
-
-	<div class="card mt-3">
-		<div class="card-body">
-			<a href="{{ action('DokterKonsultan\DokterController@create') }}" class="btn btn-primary">Tambah Dokter</a>
-		</div>
-
-		<table class="table">
-			<thead>
-				<tr>
-					<th>No</th>
-					<th>NIK</th>
-					<th>Nama</th>
-					<th>Status</th>
-					<th>Role</th>
-					<th>Email</th>
-					<th>Unit</th>
-					<th>Sub Unit</th>
-					<th>Telepon</th>
-					<th width="180">Aksi</th>
-				</tr>
-			</thead>
-			<tbody>
-				@foreach($dokters as $dokter)
-				<tr>
-					<td>0</td>
-					<td>{{ $dokter->nik }}</td>
-					<td>{{ $dokter->nama }}</td>
-					<td>
-					@if($dokter->status=='aktif')
-					<div class="badge btn-success">Aktif</div>
-					@else
-					<div class="badge btn-danger">Nonaktif</div>
-					@endif
-				</td>
-					<td>
-					@if($dokter->role=='dpjp')
-					<div >DPJP</div>
-					@else
-					<div >Dokter Konsultan</div>
-					@endif
+    		<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>No</th>
+						<th>NIK</th>
+						<th>Nama</th>
+						<th>Status</th>
+						<th>Role</th>
+						<th>Email</th>
+						<th>Unit</th>
+						<th>Sub Unit</th>
+						<th>Telepon</th>
+						<th width="60">Aksi</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach($dokters as $dokter)
+					<tr>
+						<td>{{$dokter->id}}</td>
+						<td>{{ $dokter->nik }}</td>
+						<td>{{ $dokter->nama }}</td>
+						<td>
+						@if($dokter->status=='aktif')
+						<div class="badge btn-success">Aktif</div>
+						@else
+						<div class="badge btn-danger">Nonaktif</div>
+						@endif
 					</td>
-					
-					<td>{{ $dokter->email }}</td>
-					
-					<td>
-					@if($dokter->unit=='bedah')
-					<div >Bedah</div>
-					@elseif($dokter->unit=='paru')
-					<div >Paru</div>
-					@elseif($dokter->unit=='internis')
-					<div >Internis</div>
-					@else
-					<div>Syaraf</div>
-					@endif
-					</td>
+						<td>
+						@if($dokter->role=='dpjp')
+						<div >DPJP</div>
+						@else
+						<div >Dokter Konsultan</div>
+						@endif
+						</td>
+						
+						<td>{{ $dokter->email }}</td>
+						
+						<td>
+						@if($dokter->unit=='bedah')
+						<div >Bedah</div>
+						@elseif($dokter->unit=='paru')
+						<div >Paru</div>
+						@elseif($dokter->unit=='internis')
+						<div >Internis</div>
+						@else
+						<div>Syaraf</div>
+						@endif
+						</td>
 
-					<td>
-					@if($dokter->sub_unit=='umum')
-					<div >Umum</div>
-					@else
-					<div>Orthopedi</div>
-					@endif
-					</td>
+						<td>
+						@if($dokter->sub_unit=='umum')
+						<div >Umum</div>
+						@else
+						<div>Orthopedi</div>
+						@endif
+						</td>
 
-					<td>{{ $dokter->telepon }}</td>
-					<td>
-					<a href="{{ action('DokterKonsultan\DokterController@edit', $dokter->id) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Edit</a>
-		  <!--   <button onclick="hapus({{ $dokter->id }})" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Hapus</button> 	-->
-		    		</td>
-				</tr>
-				@endforeach
-			</tbody>
-		</table>
-	</div>
-</div>
+						<td>{{ $dokter->telepon }}</td>
+						<td>
+						<a href="{{ action('DokterKonsultan\DokterController@edit', $dokter->id) }}" class="btn btn-xs btn-primary btn-sm active" role="button" aria-pressed="true">Edit</a>
+			  <!--   <button onclick="hapus({{ $dokter->id }})" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Hapus</button> 	-->
+			    		</td>
+					</tr>
+					@endforeach
+				</tbody>
+			</table>
+    	</div>
+    </div>
+</section>
+
 <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

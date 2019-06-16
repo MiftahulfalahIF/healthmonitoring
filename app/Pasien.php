@@ -38,4 +38,9 @@ class Pasien extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+     public function monitoring()
+    {
+        return $this->hasOne('App\Monitoring');
+    }
 }

@@ -6,7 +6,8 @@ use App\Pasien;
 use App\Obat;
 use App\GolonganObat;
 use App\KategoriObat;
-
+use App\Monitoring;
+use App\kontrol;
 
 class DatabaseSeeder extends Seeder
 {
@@ -22,7 +23,7 @@ class DatabaseSeeder extends Seeder
         $dokter->email = 'dokter_konsultan@healthmonitoring.com';
         $dokter->password = bcrypt('12345');
         $dokter->role = 'dokter_konsultan';
-        $dokter->nama = 'Syifa Samsara';
+        $dokter->nama = 'Syifa Sofiana';
         $dokter->nik = '111111';
         $dokter->status = 'aktif';
         $dokter->unit = 'bedah';
@@ -32,9 +33,9 @@ class DatabaseSeeder extends Seeder
 
         $dokterkonsultan_id = $dokter->id;
 
-    /**
+    
         $dokter = new Dokter;
-        $dokter->email = 'dpjp@healthmonitoring.com';
+        $dokter->email = 'dpjpliza@healthmonitoring.com';
         $dokter->password = bcrypt('1234');
         $dokter->role = 'dpjp';
         $dokter->nama = 'Liza';
@@ -44,8 +45,27 @@ class DatabaseSeeder extends Seeder
         $dokter->telepon = '087772262626';
         $dokter->save();
 
-        $dpjp_id = $dokter->id;
-    */
+        $dokter = new Dokter;
+        $dokter->email = 'dpjpdani@healthmonitoring.com';
+        $dokter->password = bcrypt('1234');
+        $dokter->role = 'dpjp';
+        $dokter->nama = 'Dani';
+        $dokter->nik = '123111';
+        $dokter->unit = 'bedah';
+        $dokter->sub_unit = 'umum';
+        $dokter->telepon = '087772262627';
+        $dokter->save();
+
+        $dokter = new Dokter;
+        $dokter->email = 'dpjpali@healthmonitoring.com';
+        $dokter->password = bcrypt('1234');
+        $dokter->role = 'dpjp';
+        $dokter->nama = 'Ali';
+        $dokter->nik = '123411';
+        $dokter->unit = 'bedah';
+        $dokter->sub_unit = 'umum';
+        $dokter->telepon = '087772262628';
+        $dokter->save();
         
 
     	// Seeder pasien
@@ -75,15 +95,36 @@ class DatabaseSeeder extends Seeder
 
         $obat = new Obat;
         $obat->kode = 'yhc123';
-        $obat->nama = 'DECADRYL EKSPEKTORAN';
-        $obat->golongan = 'Paracetamol';
-        $obat->kategori = 'Obat Keras';
-        $obat->bentuk = 'sirup';
-        $obat->indikasi = 'batuk, pilek, sesak nafas';
-        $obat->dosis = 'sehat';
+        $obat->nama = 'RHZE';
+        $obat->jenis = 'kapsul';
+        $obat->bentuk = 'KDT';
+        $obat->indikasi = 'meringankan beban dan pikiran secara alamiah';
+        $obat->dosis = '500 gr';
         $obat->produsen = 'Harsen';
         $obat->save();
 
+        $obat = new Obat;
+        $obat->kode = 'yhc1234';
+        $obat->nama = 'RH';
+        $obat->jenis = 'kapsul';
+        $obat->bentuk = 'Kombipak';
+        $obat->indikasi = 'meringankan beban dan pikiran secara alamiah';
+        $obat->dosis = '500 gr';
+        $obat->produsen = 'Hanabi';
+        $obat->save();
+
+        $monitoring = new Monitoring;
+        $monitoring->no_monitoring= '1';
+        $monitoring->pasien_id = $pasien->id;
+        $monitoring->dokterkonsultan_id = $dokter->id;
+        $monitoring->klinik_awal = 'paru';
+        $monitoring->tgl_mulai = '2019-05-24';
+        $monitoring->tahap_pengobatan = '8';
+        $monitoring->jml_kontrol = '8';
+        $monitoring->status = 'berjalan';
+        $monitoring->save();
+
+       
 
     }
 }

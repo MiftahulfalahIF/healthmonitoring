@@ -17,13 +17,11 @@ class CreateObatTable extends Migration
             $table->increments('id')->unsigned();
             $table->string('kode', 100)->unique();
             $table->string('nama');
-            $table->string('golongan');
-            $table->string('kategori');
+            $table->string('jenis');
             $table->string('bentuk');
             $table->string('indikasi');
             $table->string('dosis');
             $table->string('produsen');
-            $table->rememberToken();
             $table->timestamps();
         });
 
