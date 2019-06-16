@@ -1,13 +1,14 @@
 @extends('layout')
 
 @section('body')
+
 <section class="content-header">
     <h1>
         Tambah Kontrol
     </h1>
 </section>
 
-<form action="{{ action('DokterKonsultan\KontrolController@store', [$monitoring_id]) }}" method="post">
+<form action="{{ action('DokterKonsultan\KontrolController@store', [$monitoring_id]) }}" method="post" class="form-horizontal">
 @csrf
 
 <section class="content">
@@ -68,7 +69,7 @@
             </div>
         </div>
 
-        <div class="box-body">
+        <div class="box-body" id="form-obat">
 			<div class="form-group">
 			    <label class="col-sm-3 control-label">Nama Obat</label>
 			    <div class="col-sm-9">
@@ -85,16 +86,12 @@
 			    <div class="col-sm-9">
 			    	<div class="row">
 			    		<div class="col-sm-3">
-						    <input type="number" step="1" name="dosis_jadwal" value="{{old('dosis_jadwal')}}" class="form-control" placeholder="Masukan Hari">
-						    @if ($errors->has('dosis_jadwal'))
-						    <div style="color: #ff0000">{{  $errors->first('dosis_jadwal') }}</div>
-						    @endif
+						    <input min="1" type="number" step="1" name="dosis_jadwal" value="1" class="form-control" placeholder="Masukan Hari">
+						    <div style="color: #ff0000"></div>
 						</div>
 			    		<div class="col-sm-3">
-						    <input type="number" step="1" name="dosis_jumlah" value="{{old('dosis_jumlah')}}" class="form-control" placeholder="Jumlah Konsumsi Harian">
-						    @if ($errors->has('dosis_jumlah'))
-						    <div style="color: #ff0000">{{  $errors->first('dosis_jumlah') }}</div>
-						    @endif
+						    <input min="1" type="number" step="1" name="dosis_jumlah" value="1" class="form-control" placeholder="Jumlah Konsumsi Harian">
+						    <div style="color: #ff0000"></div>
 						</div>
 					</div>
 				</div>
@@ -123,18 +120,16 @@
 				</div>
 			</div>
 			<div class="form-group">
-			    <label class="col-sm-3 control-label">Jumalah Obat yang diberikan </label>
+			    <label class="col-sm-3 control-label">Jumlah Obat yang diberikan </label>
 			    <div class="col-sm-9">
-				    <input type="number" name="jumlah_obat" value="{{old('jumlah_obat')}}" class="form-control" placeholder="Masukan Jumlah Obat">
-				    @if ($errors->has('jumlah_obat'))
-				    <div style="color: #ff0000">{{  $errors->first('jumlah_obat') }}</div>
-				    @endif
+				    <input min="1" name="jumlah_obat" value="1" class="form-control" placeholder="Masukan Jumlah Obat">
+				    <div style="color: #ff0000"></div>
 				</div>
 			</div>
         </div>
 
         <div class="box-footer">
-            <center><button class="btn btn-primary">Tambah Obat</button></center>
+            <center><button class="btn btn-primary" onclick="tambahObat()" type="button">Tambah Obat</button></center>
         </div>
     </div>  
 
@@ -150,13 +145,17 @@
         	<table class="table table-bordered">
         		<thead>
         			<tr>
+        				<th width="40">No.</th>
         				<th>Nama Obat</th>
         				<th>Dosis</th>
         				<th>Aturan Pakai</th>
-        				<th>Jumlah Obat yang diberikan</th>
+        				<th>Jumlah Obat Diberikan</th>
         				<th width="60">Aksi</th>
         			</tr>
         		</thead>
+        		<tbody id="item-obat">
+        			
+        		</tbody>
         	</table>
         </div>
 
@@ -168,4 +167,24 @@
 
 </form>  
 
+@endsection
+
+@section('script')
+<script type="text/javascript">
+
+function tambahObat() {
+	//$('#template-table-obat .obat-no').html($('#item-obat').length + 1);
+
+	var htm = '<tr>'+
+		'<td>'+($('#item-obat tr').length + 1)+'</td>'+
+		'<td><input type="hidden" name="id_obat[]" value="'+$('#form-obat select[name=obat]').find(":selected").val()+'">'+$('#form-obat select[name=obat]').find(":selected").text()+'</td>'+
+		'<td></td>'+
+		'<td></td>'+
+		'<td></td>'+
+		'<td></td>'+
+	'</tr>';
+	$('#item-obat').append(htm);
+}
+	
+</script>
 @endsection
