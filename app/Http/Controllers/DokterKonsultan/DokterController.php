@@ -63,6 +63,7 @@ class DokterController extends Controller
         $dokter->role = $request->input('role');
         $dokter->nama = $request->input('nama');
         $dokter->nik = $request->input('nik');
+        $dokter->status = $request->input('status');
         $dokter->unit = $request->input('unit');
         $dokter->sub_unit = $request->input('sub_unit');
         $dokter->telepon = $request->input('telepon');
@@ -130,6 +131,7 @@ class DokterController extends Controller
         $dokter->role = $request->input('role');
         $dokter->nama = $request->input('nama');
         $dokter->nik = $request->input('nik');
+        $dokter->status = $request->input('status');
         $dokter->unit = $request->input('unit');
         $dokter->sub_unit = $request->input('sub_unit');
         $dokter->telepon = $request->input('telepon');

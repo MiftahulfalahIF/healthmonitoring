@@ -16,6 +16,10 @@ $no_rekam = $pasien->no_rekam;
 if(old('no_rekam')!=null){
 	$no_rekam = old('no_rekam');
 }
+$status = $pasien->status;
+if(old('status')!=null){
+	$status = old('status');
+}
 $email = $pasien->email;
 if(old('email')!=null){
 	$email = old('email');
@@ -102,6 +106,14 @@ if(old('tlp_pmo')!=null){
 	    @endif
 	  </div >
 	  <div class="form-group">
+	 	<label> Status </label>
+	 	<select name="status" class="form-control">
+	 		<option value="aktif"  @if($status == 'aktif') selected=true @endif>Aktif</option>
+	 		<option value="tidak_aktif"  @if($status == 'tidak_aktif') selected=true @endif
+			>Nonaktif</option>
+	 	</select>
+	   </div >
+		<div class="form-group">
 	    <label >Email</label>
 	    <input name="email" value="{{$email}}" type="email" class="form-control" placeholder="Masukan Email">
 	    @if ($errors->has('email'))

@@ -25,6 +25,7 @@
 					<th>No</th>
 					<th>NIK</th>
 					<th>Nama</th>
+					<th>Status</th>
 					<th>Role</th>
 					<th>Email</th>
 					<th>Unit</th>
@@ -39,14 +40,47 @@
 					<td>0</td>
 					<td>{{ $dokter->nik }}</td>
 					<td>{{ $dokter->nama }}</td>
-					<td>{{ $dokter->role }}</td>
+					<td>
+					@if($dokter->status=='aktif')
+					<div class="badge btn-success">Aktif</div>
+					@else
+					<div class="badge btn-danger">Nonaktif</div>
+					@endif
+				</td>
+					<td>
+					@if($dokter->role=='dpjp')
+					<div >DPJP</div>
+					@else
+					<div >Dokter Konsultan</div>
+					@endif
+					</td>
+					
 					<td>{{ $dokter->email }}</td>
-					<td>{{ $dokter->unit }}</td>
-					<td>{{ $dokter->sub_unit }}</td>
+					
+					<td>
+					@if($dokter->unit=='bedah')
+					<div >Bedah</div>
+					@elseif($dokter->unit=='paru')
+					<div >Paru</div>
+					@elseif($dokter->unit=='internis')
+					<div >Internis</div>
+					@else
+					<div>Syaraf</div>
+					@endif
+					</td>
+
+					<td>
+					@if($dokter->sub_unit=='umum')
+					<div >Umum</div>
+					@else
+					<div>Orthopedi</div>
+					@endif
+					</td>
+
 					<td>{{ $dokter->telepon }}</td>
 					<td>
 					<a href="{{ action('DokterKonsultan\DokterController@edit', $dokter->id) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Edit</a>
-		    <button onclick="hapus({{ $dokter->id }})" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Hapus</button>
+		  <!--   <button onclick="hapus({{ $dokter->id }})" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Hapus</button> 	-->
 		    		</td>
 				</tr>
 				@endforeach
