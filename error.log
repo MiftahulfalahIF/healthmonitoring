@@ -1,0 +1,2 @@
+[Mon Jun 17 08:51:52.257003 2019] [ssl:error] [pid 30299] AH02032: Hostname www.tokopedia.com provided via SNI and hostname mila.gherdianto.com provided via HTTP have no compatible SSL setup
+[Mon Jun 17 08:51:55.451063 2019] [ssl:error] [pid 30183] AH02032: Hostname www.kaskus.co.id provided via SNI and hostname mila.gherdianto.com provided via HTTP have no compatible SSL setup

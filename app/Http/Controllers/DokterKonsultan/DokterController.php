@@ -59,7 +59,7 @@ class DokterController extends Controller
 
         $dokter = new Dokter;
         $dokter->email = $request->input('email');
-        $dokter->password = bcrypt('mauwisuda');
+        $dokter->password = bcrypt('12345');
         $dokter->role = $request->input('role');
         $dokter->nama = $request->input('nama');
         $dokter->nik = $request->input('nik');
@@ -127,7 +127,7 @@ class DokterController extends Controller
 
         $dokter =Dokter::find($id);
         $dokter->email = $request->input('email');
-        $dokter->password = bcrypt('mauwisuda');
+        $dokter->password = bcrypt('12345');
         $dokter->role = $request->input('role');
         $dokter->nama = $request->input('nama');
         $dokter->nik = $request->input('nik');

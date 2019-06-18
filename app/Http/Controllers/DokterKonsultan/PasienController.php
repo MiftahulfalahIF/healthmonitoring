@@ -182,7 +182,7 @@ class PasienController extends Controller
         
         $pasien =Pasien::find($id);
         $pasien->nama = $request->input('nama');
-        $pasien->password = bcrypt('mauwisuda');
+        $pasien->password = bcrypt('12345');
         $pasien->nik = $request->input('nik');
         $pasien->status = $request->input('status');
         $pasien->no_rekam = $request->input('no_rekam');
