@@ -2,10 +2,9 @@
 
 @section('body')
 
-
 <section class="content-header">
     <h1>
-        Monitoring
+        Kontrol
     </h1>
 </section>
 
@@ -82,11 +81,20 @@
                         <th>No Kontrol</th>
                         <th>DPJP</th>
                         <th>Tanggal Kontrol</th>
-                        <th width="60">Aksi</th>
+                        <th width="130">Aksi</th>
                     </tr>
+
                 </thead>
                 <tbody>
-                    
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>
+                        <a class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Edit</a>
+                        <a class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Detail</a>
+                        </td> 
+                    </tr>
                 </tbody>
             </table>
         </div>

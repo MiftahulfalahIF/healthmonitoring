@@ -4,7 +4,7 @@
 
 <section class="content-header">
     <h1>
-         Tambah Dokter
+         Tambah Monitoring
     </h1>
 </section>
 

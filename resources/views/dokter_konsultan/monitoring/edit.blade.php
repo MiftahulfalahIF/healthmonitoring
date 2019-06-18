@@ -32,7 +32,7 @@ if(old('status')!=null){
 
 <section class="content-header">
     <h1>
-         Edit Pasien
+         Edit Monitoring
     </h1>
 </section>
 
