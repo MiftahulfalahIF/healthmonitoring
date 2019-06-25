@@ -82,11 +82,22 @@
                         <th>No Kontrol</th>
                         <th>DPJP</th>
                         <th>Tanggal Kontrol</th>
+                        <th>Tanggal Kembali</th>
+                        <th>Status</th>
                         <th width="60">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    @foreach($monitoring->kontrols as $kontrol)
+                    <tr>
+                        <td>{{ $kontrol->no_kontrol }}</td>
+                        <td>{{ $kontrol->dpjp->nama }}</td>
+                        <td>{{ date('d-m-Y', strtotime($kontrol->tgl_kontrol)) }}</td>
+                        <td>{{ date('d-m-Y', strtotime($kontrol->tgl_kembali)) }}</td>
+                        <td>{{ $kontrol->status }}</td>
+                        <td><a href="{{ action('DokterKonsultan\KontrolController@show', $kontrol->id) }}" class="btn btn-info btn-xs active" role="button" aria-pressed="true">Detail Kontrol</a></td>
+                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

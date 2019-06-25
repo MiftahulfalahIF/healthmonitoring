@@ -6,15 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Obat extends Model
 {
-     protected $table='obat';
+    protected $table='obat';
 
-    public function golongan()
+    public function kontrolObat()
     {
-        return $this->belongsTo('App\GolonganObat');
-    }
-
-    public function kategori()
-    {
-        return $this->belongsTo('App\KategoriObat');
+        return $this->belongsTo('App\KontrolObat');
     }
 }

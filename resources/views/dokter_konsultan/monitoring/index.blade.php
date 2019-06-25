@@ -33,7 +33,7 @@
 					<th>Klinik Awal</th>
 					<th>Tanggal Dimulai</th>
 					<th>Status Monitoring</th>
-					<th width="160">Aksi</th>
+					<th width="170">Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -42,7 +42,7 @@
 					<td>{{ $monitoring->no_monitoring}}</td>
 					<td>{{ $monitoring->pasien->nama }}</td>
 					<td>{{ $monitoring->klinik_awal }}</td>
-					<td>{{ $monitoring->tgl_mulai }} </td>
+					<td>{{ date('d-m-Y', strtotime($monitoring->tgl_mulai)) }} </td>
 					<td>
 					@if($monitoring->status=='belum')
 					<div class="badge btn-success">Belum Dilakukan</div>
@@ -58,8 +58,8 @@
 					@endif
 				</td>
 					<td>
-					<a href="{{ action('DokterKonsultan\MonitoringController@edit', $monitoring->id) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Edit</a>
-					<a href="{{ action('DokterKonsultan\MonitoringController@show', $monitoring->id) }}" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">Kontrol</a>
+					<a href="{{ action('DokterKonsultan\MonitoringController@edit', $monitoring->id) }}" class="btn btn-warning btn-xs active" role="button" aria-pressed="true">Edit</a>
+					<a href="{{ action('DokterKonsultan\MonitoringController@show', $monitoring->id) }}" class="btn btn-info btn-xs active" role="button" aria-pressed="true">Ke Halaman Kontrol</a>
 					</td>
 					
 				
