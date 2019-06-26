@@ -121,15 +121,7 @@
 	    @endif
 	</div>
 	 </div >
-	 <div class="form-group">
-	 	<label class="col-sm-3 control-label"> Bentuk Obat</label>
-	 	<div class="col-sm-9">
-	 	<select name="bentuk_obat" class="form-control">
-	 		<option value="kdt">KDT</option>
-	 		<option value="kombipak">Kombipak</option>
-	 	</select>
-	 </div>
-	 </div>
+	 
 	 <div class="form-group">
 	    <label class="col-sm-3 control-label">Telepon</label>
 	    <div class="col-sm-9">

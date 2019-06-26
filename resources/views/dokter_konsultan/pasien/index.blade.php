@@ -63,8 +63,8 @@
 					<td>{{ $pasien->telepon }}</td>
 					<td>{{ $pasien->nama_pmo }}</td>
 					<td>
-						<a href="{{ action('DokterKonsultan\PasienController@edit', $pasien->id) }}" class="btn btn-xs btn-warning btn-sm active" role="button" aria-pressed="true">Edit</a>
-						<a href="{{ action('DokterKonsultan\PasienController@show', $pasien->id) }}" class="btn btn-xs btn-success btn-sm active" role="button" aria-pressed="true">Detail</a>
+						<a href="{{ action('DokterKonsultan\PasienController@edit', $pasien->id) }}" class="btn btn-xs btn-primary btn-sm active" role="button" aria-pressed="true">Edit</a>
+						<a href="{{ action('DokterKonsultan\PasienController@show', $pasien->id) }}" class="btn btn-xs btn-primary btn-sm active" role="button" aria-pressed="true">Laporan </a>
 			    	</td>
 				</tr>
 				@endforeach

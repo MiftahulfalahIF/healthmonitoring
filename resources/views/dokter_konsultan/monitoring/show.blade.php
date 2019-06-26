@@ -2,10 +2,9 @@
 
 @section('body')
 
-
 <section class="content-header">
     <h1>
-        Monitoring
+        Kontrol
     </h1>
 </section>
 
@@ -86,6 +85,7 @@
                         <th>Status</th>
                         <th width="60">Aksi</th>
                     </tr>
+
                 </thead>
                 <tbody>
                     @foreach($monitoring->kontrols as $kontrol)

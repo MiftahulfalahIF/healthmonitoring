@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEfeksampingTable extends Migration
+class CreateKonsumsiobatTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,9 @@ class CreateEfeksampingTable extends Migration
      */
     public function up()
     {
-        Schema::create('efeksamping', function (Blueprint $table) {
+        Schema::create('konsumsiobat', function (Blueprint $table) {
+            $table->enum('diminum',['1','2'])->default('1');
+            $table->date("waktu_konsumsi");
             $table->bigIncrements('id');
             $table->timestamps();
         });
@@ -26,6 +28,6 @@ class CreateEfeksampingTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('efeksamping');
+        Schema::dropIfExists('konsumsiobat');
     }
 }

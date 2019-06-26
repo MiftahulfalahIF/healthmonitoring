@@ -27,7 +27,6 @@ class CreatePasienTable extends Migration
             $table->date('tgl_lahir');
             $table->decimal('bb', 8, 2);
             $table->decimal('tb', 8, 2);
-            $table->enum('bentuk_obat',['kdt','kombipak']);
             $table->string('telepon');
             $table->string('nama_pmo');
             $table->string('nik_pmo');

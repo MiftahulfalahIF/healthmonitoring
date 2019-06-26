@@ -48,10 +48,7 @@ $tb = $pasien->tb;
 if(old('tb')!=null){
 	$tb = old('tb');
 }
-$bentuk_obat = $pasien->bentuk_obat;
-if(old('bentuk_obat')!=null){
-	$bentuk_obat = old('bentuk_obat');
-}
+
 $telepon = $pasien->telepon;
 if(old('telepon')!=null){
 	$telepon = old('telepon');
@@ -212,16 +209,6 @@ if(old('tlp_pmo')!=null){
 	  </div >
 	</div>
 
-	 <div class="form-group">
-	 	<label class="col-sm-3 control-label"> Bentuk Obat </label>
-	 	<div class="col-sm-9">
-	 	<select name="bentuk_obat" class="form-control">
-	 		<option value="kdt"  @if($bentuk_obat == 'kdt') selected=true @endif>KDT</option>
-	 		<option value="kombipak"  @if($bentuk_obat == 'kombipak') selected=true @endif
-			>Kombipak</option>
-	 	</select>
-	 </div>
-	</div>
 
 	  <div class="form-group">
 	    <label class="col-sm-3 control-label">Telepon</label>

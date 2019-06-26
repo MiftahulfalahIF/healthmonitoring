@@ -81,7 +81,6 @@ class DatabaseSeeder extends Seeder
          $pasien->tgl_lahir = '1992-06-30';
          $pasien->bb = 80.00;
          $pasien->tb = 175.00;
-         $pasien->bentuk_obat = 'kdt';
          $pasien->telepon = '08572123537';
          $pasien->nama_pmo = 'Hasna';
          $pasien->nik_pmo = '24111151001';

@@ -64,7 +64,7 @@
 
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">Form Tambah Obat</h3>
+            <h3 class="box-title">Form Tambah Kontrol Obat</h3>
             <div class="box-tools">
             </div>
         </div>
@@ -151,15 +151,18 @@
 				</div>
 			</div>
         </div>
+        
 
         <div class="box-footer">
+
             <center><button class="btn btn-primary" onclick="tambahObat()" type="button">Tambah Obat</button></center>
+
         </div>
     </div>  
 
     <div class="box">
         <div class="box-header with-border">
-            <h3 class="box-title">Tabel Obat</h3>
+            <h3 class="box-title">Tabel Kontrol Obat</h3>
             <div class="box-tools">
 
             </div>

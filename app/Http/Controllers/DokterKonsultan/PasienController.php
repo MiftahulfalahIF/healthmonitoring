@@ -95,7 +95,6 @@ class PasienController extends Controller
         $pasien->tgl_lahir = $request->input('tgl_lahir');
         $pasien->bb = $request->input('bb');
         $pasien->tb = $request->input('tb');
-        $pasien->bentuk_obat = $request->input('bentuk_obat');
         $pasien->telepon = $request->input('telepon');
         $pasien->nama_pmo = $request->input('nama_pmo');
         $pasien->nik_pmo = $request->input('nik_pmo');
@@ -193,7 +192,6 @@ class PasienController extends Controller
         $pasien->tgl_lahir = $request->input('tgl_lahir');
         $pasien->bb = $request->input('bb');
         $pasien->tb = $request->input('tb');
-        $pasien->bentuk_obat = $request->input('bentuk_obat');
         $pasien->telepon = $request->input('telepon');
         $pasien->nama_pmo = $request->input('nama_pmo');
         $pasien->nik_pmo = $request->input('nik_pmo');
