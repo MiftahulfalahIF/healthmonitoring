@@ -92,7 +92,7 @@
                                 $jdw = json_decode($kobat->jadwal_konsumsi);
                             ?>
                             @foreach ($jdw as $item)
-                                <span class="label label-danger" style="margin-right:4px;"><?php if($item<=9) echo "0"; ?>{{ $item }}:00</span>
+                                <span class="badge btn-inverse" style="margin-right:4px;"><?php if($item<=9) echo "0"; ?>{{ $item }}:00</span>
                             @endforeach
                         </td>
                         <td>{{ $kobat->dosis_konsumsi }}</td>
@@ -139,13 +139,13 @@
                                 <td>{{ date('d-m-Y H:i', strtotime($jk->jadwal_konsumsi)) }}</td>
                                 <td>
                                     @if($jk->diminum=='belum')
-                                        <span class="label label-warning">Belum</span>
+                                        <span class="badge btn-warning">Belum</span>
                                     @endif
                                     @if($jk->diminum=='tidak')
-                                        <span class="label label-danger">Tidak</span>
+                                        <span class="badge btn-danger">Tidak</span>
                                     @endif
                                     @if($jk->diminum=='ya')
-                                        <span class="label label-success">Ya</span>
+                                        <span class="badge btn-success">Ya</span>
                                     @endif
                                 </td>
                             </tr>
