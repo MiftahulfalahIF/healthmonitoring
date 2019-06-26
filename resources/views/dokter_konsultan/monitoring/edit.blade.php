@@ -98,6 +98,7 @@ if(old('status')!=null){
 	  </div >
 	</div>
 
+	<?php /*
 	  <div class="form-group">
 	    <label class="col-sm-3 control-label">Tahap Pengobatan</label>
 	    <div class="col-sm-9">
@@ -107,6 +108,9 @@ if(old('status')!=null){
 	    @endif
 	 </div >
 	</div>
+	*/?>
+
+	<input type="hidden" name="tahap_pengobatan" value="0">
 
 	<div class="form-group">
 	    <label class="col-sm-3 control-label">Kontrol Yang Harus Dilakukan</label>

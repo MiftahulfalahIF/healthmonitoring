@@ -49,10 +49,12 @@
                     <td>Tanggal Dimulai</td>
                     <td>: {{ $monitoring->tgl_mulai}}</td>
                 </tr>
+                     <!--
                 <tr>
                     <td>Tahap Pengobatan</td>
                     <td>: {{ $monitoring->tahap_pengobatan}}</td>
                 </tr>
+                     -->
                 <tr>
                     <td>Kontrol Yang Harus Dilakukan</td>
                     <td>: {{ $monitoring->jml_kontrol}}</td>

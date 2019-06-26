@@ -65,7 +65,12 @@ class DokterController extends Controller
         $dokter->nik = $request->input('nik');
         $dokter->status = $request->input('status');
         $dokter->unit = $request->input('unit');
-        $dokter->sub_unit = $request->input('sub_unit');
+
+        $dokter->sub_unit = null;
+        if($request->input('unit')=='bedah'){
+            $dokter->sub_unit = $request->input('sub_unit');
+        }
+
         $dokter->telepon = $request->input('telepon');
         $dokter->save();
 
@@ -106,6 +111,7 @@ class DokterController extends Controller
      */
     public function update(Request $request, $id)
     {
+
         $validatedData = $request->validate([
             'email' => 'required|email|unique:dokter,email,'.$id.'|max:255',
             'nama' => 'required',
@@ -125,7 +131,7 @@ class DokterController extends Controller
 
         ]);
 
-        $dokter =Dokter::find($id);
+        $dokter = Dokter::find($id);
         $dokter->email = $request->input('email');
         $dokter->password = bcrypt('12345');
         $dokter->role = $request->input('role');
@@ -133,7 +139,12 @@ class DokterController extends Controller
         $dokter->nik = $request->input('nik');
         $dokter->status = $request->input('status');
         $dokter->unit = $request->input('unit');
-        $dokter->sub_unit = $request->input('sub_unit');
+
+        $dokter->sub_unit = null;
+        if($request->input('unit')=='bedah'){
+            $dokter->sub_unit = $request->input('sub_unit');
+        }
+
         $dokter->telepon = $request->input('telepon');
         $dokter->save();
 

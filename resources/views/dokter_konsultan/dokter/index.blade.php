@@ -78,7 +78,8 @@
 						<td>
 						@if($dokter->sub_unit=='umum')
 						<div >Umum</div>
-						@else
+						@endif
+						@if($dokter->sub_unit=='orthopedi')
 						<div>Orthopedi</div>
 						@endif
 						</td>

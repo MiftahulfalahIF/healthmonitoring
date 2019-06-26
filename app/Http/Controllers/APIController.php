@@ -73,6 +73,21 @@ class APIController extends Controller
 
     		$pasien = Pasien::where('email', $email)->first();
     		$monitoring = Monitoring::where('pasien_id', $pasien->id)->where('status', 'berjalan')->first();
+
+            $kontrols = [];
+
+            foreach ($monitoring->kontrols as $kon) {
+                $k = [];
+                $k['id'] = $kon->id;
+                $k['no_kontrol'] = $kon->no_kontrol;
+                $k['tgl_kontrol'] = date('d-m-Y', strtotime($kon->tgl_kontrol));
+                $k['tgl_kembali'] = date('d-m-Y', strtotime($kon->tgl_kembali));
+                $k['status'] = $kon->status;
+                $k['dpjp'] = $kon->dpjp->nama;
+
+                $kontrols[] = $k;
+            }
+
     		$res =  [
 			   	'id' => $monitoring->id,
 				'nama' => $monitoring->pasien->nama,
@@ -82,7 +97,8 @@ class APIController extends Controller
 				'tgl_mulai' => date('d-m-Y', strtotime($monitoring->tgl_mulai)),
 				'tahap' => $monitoring->tahap_pengobatan,
 				'jumlah_kontrol' => $monitoring->jml_kontrol,
-				'status' => $monitoring->status
+				'status' => $monitoring->status,
+                'kontrols' => $kontrols
 			];
 
     		return response()->json($res);

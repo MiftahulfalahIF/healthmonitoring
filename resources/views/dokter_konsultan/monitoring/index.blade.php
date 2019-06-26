@@ -59,7 +59,7 @@
 				</td>
 					<td>
 					<a href="{{ action('DokterKonsultan\MonitoringController@edit', $monitoring->id) }}" class="btn btn-warning btn-xs active" role="button" aria-pressed="true">Edit</a>
-					<a href="{{ action('DokterKonsultan\MonitoringController@show', $monitoring->id) }}" class="btn btn-info btn-xs active" role="button" aria-pressed="true">Ke Halaman Kontrol</a>
+					<a href="{{ action('DokterKonsultan\MonitoringController@show', $monitoring->id) }}" class="btn btn-info btn-xs active" role="button" aria-pressed="true">Kontrol</a>
 					</td>
 					
 				

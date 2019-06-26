@@ -90,8 +90,14 @@ class PasienController extends Controller
         $pasien->password = bcrypt('12345');
         $pasien->email = $request->input('email');
         $pasien->alamat = $request->input('alamat');
+
         $pasien->jk = $request->input('jk');
-        $pasien->wanita_subur = $request->input('wanita_subur');
+
+        $pasien->wanita_subur = null;
+        if($request->input('jk')!='l'){
+            $pasien->wanita_subur = $request->input('wanita_subur');
+        }
+
         $pasien->tgl_lahir = $request->input('tgl_lahir');
         $pasien->bb = $request->input('bb');
         $pasien->tb = $request->input('tb');
@@ -188,7 +194,13 @@ class PasienController extends Controller
         $pasien->email = $request->input('email');
         $pasien->alamat = $request->input('alamat');
         $pasien->jk = $request->input('jk');
-        $pasien->wanita_subur = $request->input('wanita_subur');
+
+
+        $pasien->wanita_subur = null;
+        if($request->input('jk')!='l'){
+            $pasien->wanita_subur = $request->input('wanita_subur');
+        }
+
         $pasien->tgl_lahir = $request->input('tgl_lahir');
         $pasien->bb = $request->input('bb');
         $pasien->tb = $request->input('tb');

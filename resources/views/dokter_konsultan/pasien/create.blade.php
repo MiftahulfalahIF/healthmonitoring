@@ -79,13 +79,13 @@
 	 <div class="form-group">
 	 	<label class="col-sm-3 control-label"> Jenis Kelamin </label>
 	 	<div class="col-sm-9">
-	 		<select name="jk" class="form-control">
+	 		<select name="jk" class="form-control" id="jk-select">
 	 		<option value="l">Laki-Laki</option>
 	 		<option value="p">Perempuan</option>
 	 		</select>
 	 	</div>
 	 </div>
-	 <div class="form-group">
+	 <div class="form-group" id="wanita-subur" style="display: none;">
 	 	<label class="col-sm-3 control-label"> Wanita Subur</label>
 	 	<div class="col-sm-9">
 	 		<select name="wanita_subur" class="form-control">
@@ -178,5 +178,17 @@
 </section>
 
 </form> 
-create
+@endsection
+
+@section('script')
+<script type="text/javascript">
+$('#jk-select').change(function(){
+	if(this.value=='l'){
+		$('#wanita-subur').hide();
+	}else{
+		$('#wanita-subur').show();
+	}
+
+});
+</script>
 @endsection

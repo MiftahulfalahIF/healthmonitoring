@@ -123,7 +123,7 @@ if(old('sub_unit')!=null){
 	 <div class="form-group">
 	 	<label class="col-sm-3 control-label"> Unit </label>
 	 	<div class="col-sm-9">
-	 	<select name="unit" class="form-control">
+	 	<select name="unit" class="form-control" id="select-unit">
 	 		<option value="bedah" @if($unit == 'bedah') selected=true @endif>Bedah</option>
 	 		<option value="paru" @if($unit  == 'paru') selected=true @endif>Paru</option>
 	 		<option value="internis" @if($unit == 'internis') selected=true @endif>Internis</option>
@@ -132,7 +132,7 @@ if(old('sub_unit')!=null){
 	 </div>
 	</div>
 
-	<div class="form-group">
+	<div class="form-group" id="select-subunit" @if($unit!='bedah') style="display: none;" @endif>
 	 	<label class="col-sm-3 control-label"> Sub Unit </label>
 	 	<div class="col-sm-9">
 	 	<select name="sub_unit" class="form-control">
@@ -169,6 +169,18 @@ if(old('sub_unit')!=null){
 </div>
 </section>
 </form>
+@endsection
 
-edit
+
+
+@section('script')
+<script type="text/javascript">
+$('#select-unit').change(function(){
+	if(this.value=='bedah'){
+		$('#select-subunit').show();
+	}else{
+		$('#select-subunit').hide();
+	}
+});
+</script>
 @endsection

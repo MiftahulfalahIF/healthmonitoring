@@ -20,7 +20,7 @@ class CreateMonitoringTable extends Migration
             $table->integer('dokterkonsultan_id')->unsigned();
             $table->string('klinik_awal');
             $table->date('tgl_mulai');
-            $table->integer('tahap_pengobatan');
+            $table->integer('tahap_pengobatan')->nullabale();
 
             /* Kontrol yg harus dilakukan */
             $table->integer ('jml_kontrol');

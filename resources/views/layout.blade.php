@@ -13,6 +13,7 @@
         <!-- Ionicons -->
         <link rel="stylesheet" href="{{ asset('bower_components/Ionicons/css/ionicons.min.css') }}">
         <link rel="stylesheet" href="{{ asset('bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
         <!-- Theme style -->
         <link rel="stylesheet" href="{{ asset('themes/css/AdminLTE.min.css') }}">
         <!-- AdminLTE Skins. Choose a skin from the css/skins
@@ -85,9 +86,9 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu" data-widget="tree">
                         @if(!Auth::check())
-                            <li class="header">MAIN NAVIGATION</li>
+                            <!--<li class="header">MAIN NAVIGATION</li>
                             <li><a href="{{ asset('') }}"><i class="fa fa-home"></i><span>Home</span></a></li>
-                            <li><a href="{{ action('LoginController@login') }}"><i class="fa fa-lock"></i><span>Login</span></a></li>
+                            <li><a href="{{ action('LoginController@login') }}"><i class="fa fa-lock"></i><span>Login</span></a></li> -->
                         @else
                             @php
                                 $user = Auth::user();
@@ -156,6 +157,8 @@
         <!-- FastClick -->
         <script src="{{ asset('bower_components/fastclick/lib/fastclick.js') }}"></script>
         <script src="{{ asset('bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js') }}"></script>
+        <script src="{{ asset('bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
         <!-- AdminLTE App -->
         <script src="{{ asset('themes/js/adminlte.min.js') }}"></script>
         <!-- AdminLTE for demo purposes -->

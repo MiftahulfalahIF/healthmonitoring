@@ -1,6 +1,7 @@
 @extends('layout')
 
 @section('body')
+
 <section class="content-header">
     <h1>
         Pasien
@@ -36,7 +37,7 @@
 					<th>Jenis Kelamin</th>
 					<th>Telepon</th>
 					<th>Nama PMO </th>
-					<th width="100">Aksi</th>
+					<th width="160">Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
