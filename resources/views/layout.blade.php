@@ -163,5 +163,9 @@
               $('.sidebar-menu').tree()
             })
         </script>
+
+        @section('script')
+
+        @show
     </body>
 </html>
