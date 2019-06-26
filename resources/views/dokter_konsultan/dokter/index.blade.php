@@ -37,7 +37,7 @@
 						<th>Unit</th>
 						<th>Sub Unit</th>
 						<th>Telepon</th>
-						<th width="60">Aksi</th>
+						<th width="50">Aksi</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -85,8 +85,8 @@
 
 						<td>{{ $dokter->telepon }}</td>
 						<td>
-						<a href="{{ action('DokterKonsultan\DokterController@edit', $dokter->id) }}" class="btn btn-xs btn-primary btn-sm active" role="button" aria-pressed="true">Edit</a>
-			  <!--   <button onclick="hapus({{ $dokter->id }})" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Hapus</button> 	-->
+						<a href="{{ action('DokterKonsultan\DokterController@edit', $dokter->id) }}" class="btn btn-xs btn-warning btn-sm active" role="button" aria-pressed="true">Edit</a>
+			  			<?php /* <button onclick="hapus({{ $dokter->id }})" class="btn btn-danger btn-sm active" role="button" aria-pressed="true">Hapus</button>*/ ?>
 			    		</td>
 					</tr>
 					@endforeach

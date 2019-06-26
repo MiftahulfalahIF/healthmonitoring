@@ -34,6 +34,7 @@ class MonitoringController extends Controller
             'tgl_mulai' => 'required',
             'tahap_pengobatan' => 'required|numeric',
             'jml_kontrol' => 'required|numeric',
+            'klinik_awal' => 'required',
         ],
         [
            
@@ -43,6 +44,7 @@ class MonitoringController extends Controller
             'tahap_pengobatan.required' => 'Tahap Berobat harus diisi',
             'tahap_pengobatan.numeric' => 'Tidak sesuai format',
            'jml_kontrol.required' => 'Jumlah kontrol harus diisi',
+           'klinik_awal.required' => 'Klinik awal harus diisi',
             'jml_kontrol.numeric' => 'Tidak sesuai format',
            
 
@@ -53,7 +55,7 @@ class MonitoringController extends Controller
         $monitoring->pasien_id = $request->input('pasien');
         $monitoring->dokterkonsultan_id = $request->input('dokter');
         $monitoring->klinik_awal = $request->input('klinik_awal');
-        $monitoring->tgl_mulai = $request->input('tgl_mulai');
+        $monitoring->tgl_mulai = date('Y-m-d', strtotime($request->input('tgl_mulai')));
         $monitoring->tahap_pengobatan = $request->input('tahap_pengobatan');
         $monitoring->jml_kontrol = $request->input('jml_kontrol');
         $monitoring->status = $request->input('status');

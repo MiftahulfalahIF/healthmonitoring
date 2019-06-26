@@ -58,7 +58,7 @@
 	 <div class="form-group">
 	    <label class="col-sm-3 control-label" >Tanggal Dimulai</label>
 	    <div class="col-sm-9">
-	    <input name="tgl_mulai" value="{{old('tgl_mulai')}}" type="date"  class="form-control" >
+	    <input name="tgl_mulai" value="{{ date('d-m-Y'), strtotime(old('tgl_mulai')) }}" type="text"  class="form-control datepicker" >
 	    @if ($errors->has('tgl_mulai'))
 	    	<div style="color: #ff0000">{{  $errors->first('tgl_mulai') }}</div>
 	    @endif
@@ -114,4 +114,13 @@
 </section>
 </form>
 
+@endsection
+
+@section('script')
+<script type="text/javascript">
+$('.datepicker').datepicker({
+	format: 'dd-mm-yyyy', 
+	startDate: 'today'
+});	
+</script>
 @endsection

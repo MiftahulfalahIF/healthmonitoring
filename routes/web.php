@@ -36,6 +36,7 @@ Route::group(['prefix' => '/dokter_konsultan'], function(){
 	Route::group(['prefix' => '/kontrol'], function(){
 		Route::get('/create/{monitoring_id}', 'DokterKonsultan\KontrolController@create');
 		Route::post('/store/{monitoring_id}', 'DokterKonsultan\KontrolController@store');
+		Route::get('/show/{id}', 'DokterKonsultan\KontrolController@show');
 	});
 
 
