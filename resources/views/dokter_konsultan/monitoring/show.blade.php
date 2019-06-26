@@ -72,12 +72,12 @@
         <div class="box-header with-border">
             <h3 class="box-title">Tabel Kontrol</h3>
             <div class="box-tools">
-                <a href="{{ action('DokterKonsultan\KontrolController@create', [$monitoring->id]) }}" class="btn btn-primary">Tambah Kontrol</a>
+                <a href="{{ action('DokterKonsultan\KontrolController@create', [$monitoring->id]) }}" class="btn btn-primary btn-sm">Tambah Kontrol</a>
             </div>
         </div>
 
         <div class="box-body">
-            <table class="table table-bordered">
+            <table class="table table-bordered" id="datatable">
                 <thead>
                     <tr>
                         <th>No Kontrol</th>
@@ -106,10 +106,19 @@
     </div>
 </section>
 
-
-
-
-
-
 @endsection
 
+@section('script')
+<script type="text/javascript">
+$(function () {
+	$('#datatable').DataTable({
+		'paging'      : true,
+		'lengthChange': false,
+		'searching'   : true,
+		'ordering'    : true,
+		'info'        : true,
+		'autoWidth'   : false
+	});
+})
+</script>	
+@endsection

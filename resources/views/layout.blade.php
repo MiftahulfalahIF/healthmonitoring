@@ -86,9 +86,11 @@
                     <!-- sidebar menu: : style can be found in sidebar.less -->
                     <ul class="sidebar-menu" data-widget="tree">
                         @if(!Auth::check())
-                            <!--<li class="header">MAIN NAVIGATION</li>
+                            <?php /*
+                            <li class="header">MAIN NAVIGATION</li>
                             <li><a href="{{ asset('') }}"><i class="fa fa-home"></i><span>Home</span></a></li>
-                            <li><a href="{{ action('LoginController@login') }}"><i class="fa fa-lock"></i><span>Login</span></a></li> -->
+                            <li><a href="{{ action('LoginController@login') }}"><i class="fa fa-lock"></i><span>Login</span></a></li>
+                            */ ?>
                         @else
                             @php
                                 $user = Auth::user();

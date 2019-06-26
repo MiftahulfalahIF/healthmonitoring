@@ -40,12 +40,14 @@
         			</tr>
         			<tr>
         				<td>Jenis Kelamin</td>
-        				<td>: {{ $pasien->jk }}</td>
-        			</tr>
+        				<td>: @if($pasien->jk=='l') Laki-laki @else Perempuan @endif</td>
+					</tr>
+					@if($pasien->jk!='l')
         			<tr>
         				<td>Wanita Subur</td>
         				<td>: {{ $pasien->wanita_subur }}</td>
-        			</tr>
+					</tr>
+					@endif
         			<tr>
         				<td>Nama PMO</td>
         				<td>: {{ $pasien->nama_pmo }}</td>

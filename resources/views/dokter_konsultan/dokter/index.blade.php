@@ -25,7 +25,7 @@
 	        </div>
 	        @endif
 
-    		<table class="table table-bordered">
+    		<table class="table table-bordered" id="datatable">
 				<thead>
 					<tr>
 						<th>No</th>
@@ -37,7 +37,7 @@
 						<th>Unit</th>
 						<th>Sub Unit</th>
 						<th>Telepon</th>
-						<th width="50">Aksi</th>
+						<th width="30">Aksi</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -122,14 +122,25 @@
 </div>
 
 
-
-
-<script type="text/javascript">
-    function hapus(id) {
-      $('#deleteModal').modal('show');
-      var action = $('#deleteModal form').attr('action');
-      $('#deleteModal form').attr('action', action+'/'+id);
-    }
-  </script>
-
 @endsection
+@section('script')
+<script type="text/javascript">
+	function hapus(id) {
+		$('#deleteModal').modal('show');
+		var action = $('#deleteModal form').attr('action');
+		$('#deleteModal form').attr('action', action+'/'+id);
+	}
+	
+	$(function () {
+		$('#datatable').DataTable({
+			'paging'      : true,
+			'lengthChange': false,
+			'searching'   : true,
+			'ordering'    : true,
+			'info'        : true,
+			'autoWidth'   : false
+		});
+	})
+</script>		
+@endsection
+

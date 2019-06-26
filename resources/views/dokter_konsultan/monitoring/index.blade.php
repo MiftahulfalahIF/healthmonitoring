@@ -25,7 +25,7 @@
 	        </div>
 	        @endif
 
-		<table class="table table-bordered">
+		<table class="table table-bordered" id="datatable">
 			<thead>
 				<tr>
 					<th>Nomor Monitoring</th>
@@ -33,7 +33,7 @@
 					<th>Klinik Awal</th>
 					<th>Tanggal Dimulai</th>
 					<th>Status Monitoring</th>
-					<th width="170">Aksi</th>
+					<th width="80">Aksi</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -75,10 +75,20 @@
   </div>
 </div>
 
-
-
-
-
-
 @endsection
 
+
+@section('script')
+<script type="text/javascript">
+$(function () {
+	$('#datatable').DataTable({
+		'paging'      : true,
+		'lengthChange': false,
+		'searching'   : true,
+		'ordering'    : true,
+		'info'        : true,
+		'autoWidth'   : false
+	});
+})
+</script>	
+@endsection

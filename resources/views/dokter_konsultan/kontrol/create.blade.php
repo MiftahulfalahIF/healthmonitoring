@@ -282,15 +282,14 @@ function submitForm() {
 	}
 }
 
-var sDate = '{{ date('d-m-Y'), strtotime(old('tgl_kontrol')) }}';
-
 $('.datepicker2').datepicker({
 	format: 'dd-mm-yyyy',
-	startDate: '{{ date('d-m-Y'), strtotime(old('tgl_kontrol')) }}'
+	startDate: '{{ date('d-m-Y'), strtotime(old('tgl_kontrol')." +2 day") }}'
 });	
 
 $('.datepicker1').datepicker({
-	format: 'dd-mm-yyyy'
+	format: 'dd-mm-yyyy',
+	startDate: '{{ date('d-m-Y'), strtotime(old('tgl_kontrol')) }}'
 }).on('hide', function(e) {
 	$(".datepicker2").datepicker("option", "startDate", e.date);
 });
