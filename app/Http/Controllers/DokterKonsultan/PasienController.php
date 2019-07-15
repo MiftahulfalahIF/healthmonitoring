@@ -5,6 +5,7 @@ namespace App\Http\Controllers\DokterKonsultan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Pasien;
+use App\Kontrol;
 
 class PasienController extends Controller
 {
@@ -229,11 +230,11 @@ class PasienController extends Controller
 
     }
 
- public function show($id)
+    public function show($id)
     {
         $pasien = Pasien::find($id);
-
-        return view('dokter_konsultan.pasien.show')->with('pasien', $pasien);
+        $kontrol = Kontrol::where('pasien_id', $pasien->id)->where('status', 'berjalan')->first();
+        return view('dokter_konsultan.pasien.show')->with('pasien', $pasien)->with('kontrol', $kontrol);
     }
 
 }

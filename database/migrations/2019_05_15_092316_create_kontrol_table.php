@@ -18,7 +18,8 @@ class CreateKontrolTable extends Migration
             $table->string('no_kontrol')->nullabale()->default("");
             $table->integer('monitoring_id')->unsigned();
             $table->integer('pasien_id')->unsigned();
-            $table->integer('dpjp_id')->unsigned();
+            $table->integer('dokter_id')->unsigned();
+            $table->integer('perawat_id')->unsigned();
             $table->date("tgl_kontrol");
             $table->date("tgl_kembali");
             $table->enum('status', ['berjalan', 'selesai', 'mengulang']);
@@ -36,7 +37,11 @@ class CreateKontrolTable extends Migration
             ->references('id')->on('pasien')
             ->onDelete('cascade')->onUpdate('cascade');
 
-            $table->foreign('dpjp_id')
+            $table->foreign('dokter_id')
+            ->references('id')->on('dokter')
+            ->onDelete('cascade')->onUpdate('cascade');
+
+            $table->foreign('perawat_id')
             ->references('id')->on('dokter')
             ->onDelete('cascade')->onUpdate('cascade');
 

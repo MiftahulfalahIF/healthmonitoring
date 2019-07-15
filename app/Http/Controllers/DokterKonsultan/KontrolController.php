@@ -73,7 +73,7 @@ class KontrolController extends Controller
             }
             
             $x = 0;
-            $day = 1;
+            $day = 0;
             for($j=1;$j<=$sum;$j++) {
                 $jadwal = new JadwalKonsumsi;
                 $jadwal->kontrol_obat_id = $kontrolObat->id;

@@ -38,7 +38,7 @@
 	   	 <label class="col-sm-3 control-label">Dokter Konsultan</label>
 	   	 <div class="col-sm-9">
 	   	 <select class="form-control" name="dokter">
-	@foreach(App\Dokter::where('role', 'dpjp')->get() as $dokter)
+	@foreach(App\Dokter::where('role', 'dokter_konsultan')->get() as $dokter)
 		<option value="{{ $dokter->id }}">{{ $dokter->nama }}</option>
 	@endforeach 
 		</select>

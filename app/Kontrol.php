@@ -18,9 +18,13 @@ class Kontrol extends Model
         return $this->hasMany('App\KontrolObat', 'kontrol_id');
     }
 
-    public function dpjp()
+    public function dokter()
     {
-        return $this->belongsTo('App\Dokter', 'dpjp_id');
+        return $this->belongsTo('App\Dokter', 'dokter_id');
+    }
+    public function perawat()
+    {
+        return $this->belongsTo('App\Perawat', 'perawat_id');
     }
 
     public function pasien()

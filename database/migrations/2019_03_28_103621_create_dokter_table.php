@@ -15,9 +15,6 @@ class CreateDokterTable extends Migration
     {
         Schema::create('dokter', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->string('email', 100)->unique();
-            $table->string('password');
-            $table->enum('role', ['dokter_konsultan', 'dpjp']);
             $table->string('nama');
             $table->string('nik');
             $table->enum('status',['aktif','tidak_aktif'])->default('aktif');

@@ -7,7 +7,8 @@ use App\Obat;
 use App\GolonganObat;
 use App\KategoriObat;
 use App\Monitoring;
-use App\kontrol;
+use App\Kontrol;
+use App\Perawat;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,21 +20,29 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         
-        $dokter = new Dokter;
-        $dokter->email = 'dokter_konsultan@healthmonitoring.com';
-        $dokter->password = bcrypt('12345');
-        $dokter->role = 'dokter_konsultan';
-        $dokter->nama = 'Syifa Sofiana';
-        $dokter->nik = '111111';
-        $dokter->status = 'aktif';
-        $dokter->unit = 'bedah';
-        $dokter->sub_unit = 'umum';
-        $dokter->telepon = '087772262626';
-        $dokter->save();
+        $perawat = new Perawat;
+        $perawat->email = 'perawat1@healthmonitoring.com';
+        $perawat->password = bcrypt('12345');
+        $perawat->role = 'superadmin';
+        $perawat->nama = ' Yanti';
+        $perawat->nik = '320527080587500001';
+        $perawat->status = 'aktif';
+        $perawat->telepon = '085224148212';
+        $perawat->save();
 
-        $dokterkonsultan_id = $dokter->id;
+        $perawat = new Perawat;
+        $perawat->email = 'perawat2@healthmonitoring.com';
+        $perawat->password = bcrypt('12345');
+        $perawat->role = 'admin';
+        $perawat->nama = ' Yanto';
+        $perawat->nik = '320527080587500002';
+        $perawat->status = 'aktif';
+        $perawat->telepon = '085224148213';
+        $perawat->save();
 
-    
+
+
+    /*
         $dokter = new Dokter;
         $dokter->email = 'dpjpliza@healthmonitoring.com';
         $dokter->password = bcrypt('1234');
@@ -66,6 +75,7 @@ class DatabaseSeeder extends Seeder
         $dokter->sub_unit = 'umum';
         $dokter->telepon = '087772262628';
         $dokter->save();
+    */
         
 
     	// Seeder pasien

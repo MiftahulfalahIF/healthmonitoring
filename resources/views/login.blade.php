@@ -4,13 +4,20 @@
 <section  class="content-header">
 </section>
 <section class="content">
+	<div class="login-logo">
+		<h2 class="headline text-blue"><b>SISTEM INFORMASI MONITORING KESEHATAN </b></h2>
+		<th>
+			<h2 class="headline text-blue"><b> PASIEN TB RAWAT JALAN RUMAH SAKIT AL ISLAM BANDUNG	 </b></h2>	
+		</th>
+		
+	</div>
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4">
 	    	<!-- general form elements -->
 		    <div class="box box-primary">
-		        <div class="box-header with-border">
-		            <h3 class="box-title">Silahkan Login</h3>
-		        </div>
+		        <div class="login-box-body">
+		            <h1 class="login-box-msg headline text-blue ">Silahkan Login</h1>
+		        
 		        <!-- /.box-header -->
 		        <!-- form start -->
 		        <form role="form" action="{{ action('LoginController@loginDo') }}" method="post">
@@ -32,9 +39,10 @@
 		                    <input name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
 		                </div>
 		            </div>
+		            </div>
 		            <!-- /.box-body -->
 		            <div class="box-footer">
-		                <button type="submit" class="btn btn-primary">Login</button>
+		              <button type="submit" class="btn btn-primary btn-block btn-flat">Login</button>
 		            </div>
 		        </form>
 		    </div>

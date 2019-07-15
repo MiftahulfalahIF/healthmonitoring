@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'LoginController@login');
 
 Route::group(['middleware' => 'guest'],function(){
 	Route::get('/login', 'LoginController@login');

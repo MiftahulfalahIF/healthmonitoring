@@ -17,7 +17,6 @@ class CreateMonitoringTable extends Migration
             $table->increments('id')->unsigned();
             $table->string('no_monitoring')->nullabale()->default("");
             $table->integer('pasien_id')->unsigned();
-            $table->integer('dokterkonsultan_id')->unsigned();
             $table->string('klinik_awal');
             $table->date('tgl_mulai');
             $table->integer('tahap_pengobatan')->nullabale();
@@ -36,10 +35,6 @@ class CreateMonitoringTable extends Migration
         Schema::table('monitoring', function (Blueprint $table){
 
            
-            $table->foreign('dokterkonsultan_id')
-            ->references('id')->on('dokter')
-            ->onDelete('cascade')->onUpdate('cascade');
-
             $table->foreign('pasien_id')
             ->references('id')->on('pasien')
             ->onDelete('cascade')->onUpdate('cascade');
