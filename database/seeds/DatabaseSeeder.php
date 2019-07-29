@@ -206,12 +206,30 @@ class DatabaseSeeder extends Seeder
         $kontrol->perawat_id = $monitoring->perawat_id;
         $kontrol->dokter_id = $dokter->id;
         $kontrol->tgl_kontrol = $monitoring->tgl_mulai;
-        $kontrol->tgl_kembali = date('Y-m-d', strtotime($monitoring->tgl_mulai.' + 10'));
+        $kontrol->tgl_kembali = date('Y-m-d', strtotime($monitoring->tgl_mulai.' +10 days'));
         $kontrol->status = 'berjalan';
         $kontrol-> save();
 
         $kontrol->no_kontrol = $kontrol->id."/Kontrol/".$kontrol->perawat_id."/".date('d/m/Y', strtotime($kontrol->tgl_kontrol));
         $kontrol->save();
+
+        $kontrolObat = new KontrolObat;
+        $kontrolObat->kontrol_id = $kontrol->id;
+        $kontrolObat->obat_id = 1;
+        $kontrolObat->aturan_pakai = 'sebelum_makan';
+        $kontrolObat->dosis_konsumsi = 5;
+        $kontrolObat->total_obat = 100;
+        $kontrolObat->jadwal_konsumsi = ["12"];
+        $kontrolObat->save();
+
+        $kontrolObat = new KontrolObat;
+        $kontrolObat->kontrol_id = $kontrol->id;
+        $kontrolObat->obat_id = 2;
+        $kontrolObat->aturan_pakai = 'sesudah_makan';
+        $kontrolObat->dosis_konsumsi = 5;
+        $kontrolObat->total_obat = 100;
+        $kontrolObat->jadwal_konsumsi = ["19"];
+        $kontrolObat->save();
        
 
     }
