@@ -42,7 +42,7 @@ class CreateKontrolTable extends Migration
             ->onDelete('cascade')->onUpdate('cascade');
 
             $table->foreign('perawat_id')
-            ->references('id')->on('dokter')
+            ->references('id')->on('perawat')
             ->onDelete('cascade')->onUpdate('cascade');
 
         });

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDokterTable extends Migration
+class CreatePerawatTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,15 @@ class CreateDokterTable extends Migration
      */
     public function up()
     {
-        Schema::create('dokter', function (Blueprint $table) {
+        Schema::create('perawat', function (Blueprint $table) {
             $table->increments('id')->unsigned();
+            $table->string('email', 100)->unique();
+            $table->string('password');
+            $table->enum('role', ['superadmin','admin']);
             $table->string('nama');
             $table->string('nik');
-            $table->string('email');
             $table->enum('status',['aktif','tidak_aktif'])->default('aktif');
-            $table->enum('unit',['bedah','paru','internis','syaraf'])->nullable();
-            $table->enum('sub_unit', ['umum','orthopedi'])->nullable();
             $table->string('telepon');
-            $table->rememberToken();
             $table->timestamps();
         });
     }
@@ -34,6 +33,6 @@ class CreateDokterTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('dokter');
+        Schema::dropIfExists('perawat');
     }
 }

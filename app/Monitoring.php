@@ -6,12 +6,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Monitoring extends Model
 {
-     protected $table='monitoring';
+    protected $table='monitoring';
 
      
-     public function pasien()
+    public function pasien()
     {
         return $this->belongsTo('App\Pasien', 'pasien_id');
+    }
+
+    public function perawat()
+    {
+        return $this->belongsTo('App\Perawat', 'perawat_id');
     }
 
     public function kontrols()

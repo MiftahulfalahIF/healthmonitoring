@@ -55,24 +55,30 @@
                             <!-- User Account: style can be found in dropdown.less -->
                             <li class="dropdown user user-menu">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img src="{{ asset('themes/img/user2-160x160.jpg') }}" class="user-image" alt="User Image">
-                                <span class="hidden-xs">{{ Auth::user()->nama }}</span>
+                              
+                                <span class="hidden-xs"><i class="fa fa-user"></i> {{ Auth::user()->nama }}</span>
                                 </a>
                                 <ul class="dropdown-menu">
                                     <!-- User image -->
-                                    <li class="user-header">
-                                        <img src="{{ asset('themes/img/user2-160x160.jpg') }}" class="img-circle" alt="User Image">
+                                    <li class="user-header" style="height: auto;">
                                         <p>
                                             {{ Auth::user()->nama }}
                                             <small>Sejak, {{ date('m Y', strtotime(Auth::user()->created_at)) }}</small>
                                         </p>
                                     </li>
                                     <!-- Menu Footer-->
-                                    <li class="user-footer">
+                                     <li class="user-footer">
+                                        <div class="pull-left">
+                                            <a href="{{action('Perawat\PerawatController@show', Auth::user()->id) }}" class="btn btn-default btn-flat">Profile</a>
+                                        </div>
+
                                         <div class="pull-right">
                                             <a href="{{ action('LoginController@logout') }}" class="btn btn-default btn-flat">Sign out</a>
                                         </div>
                                     </li>
+                                   
+                               
+
                                 </ul>
                             </li>
                             @endif
@@ -97,34 +103,30 @@
                             @endphp
                             <li class="header">MAIN NAVIGATION</li>
 
-                            <!--   login dokter_konsultan -->
-                            @if ($user->role =='dokter_konsultan')
                             <li>
-                                <a href="{{ action('DokterKonsultan\DashboardController@index') }}">
-                                    <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-                                </a>
-                            </li> 
-                            <li>
-                                <a href="{{ action('DokterKonsultan\MonitoringController@index') }}">
-                                    <i class="fa fa-clone"></i> <span>Monitoring</span>
+                                <a href="{{ action('Perawat\MonitoringController@index') }}">
+                                    <i class="fa fa-television"></i> <span>Monitoring</span>
                                 </a>
                             </li>
                             <li>
-                                <a href="{{ action('DokterKonsultan\DokterController@index') }}">
-                                    <i class="fa fa-user"></i> <span>Dokter</span>
+                                <a href="{{ action('Perawat\DokterController@index') }}">
+                                    <i class="fa fa-users"></i> <span>Dokter</span>
                                 </a>
                             </li>
+                            @if ($user->role =='superadmin')
                             <li>
-                                <a href="{{ action('DokterKonsultan\PasienController@index') }}">
+                                <a href="{{ action('Perawat\PerawatController@index') }}">
+                                    <i class="fa fa-group"></i> <span>Perawat</span>
+                                </a>
+                            </li>
+                            @endif
+                            <li>
+                                <a href="{{ action('Perawat\PasienController@index') }}">
                                     <i class="fa fa-group"></i> <span>Pasien</span>
                                 </a>
                             </li>
-                            <!-- <li>
-                                <a href="{{ action('DokterKonsultan\ObatController@index') }}">
-                                    <i class="fa fa-medkit"></i> <span>Obat</span>
-                                </a>
-                            </li> -->
-                            @endif
+                          
+
                             
                             <!--   login dpjp -->
                             @if ($user->role =='dpjp')

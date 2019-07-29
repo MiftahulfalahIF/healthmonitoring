@@ -38,7 +38,7 @@ return [
     'guards' => [
         'web' => [
             'driver' => 'session',
-            'provider' => 'dokter',
+            'provider' => 'perawat',
         ],
 
         'api' => [
@@ -66,9 +66,9 @@ return [
     */
 
     'providers' => [
-        'dokter' => [
+        'perawat' => [
             'driver' => 'eloquent',
-            'model' => App\Dokter::class,
+            'model' => App\Perawat::class,
         ],
 
         // 'users' => [
@@ -93,8 +93,8 @@ return [
     */
 
     'passwords' => [
-        'dokter' => [
-            'provider' => 'dokter',
+        'perawat' => [
+            'provider' => 'perawat',
             'table' => 'password_resets',
             'expire' => 60,
         ],

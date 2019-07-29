@@ -10,6 +10,7 @@ use App\Monitoring;
 use App\KontrolObat;
 use App\JadwalKonsumsi;
 use App\SurveyPerkembangan;
+use App\SurveySesakNafas;
 use Hash;
 
 class APIController extends Controller
@@ -50,6 +51,12 @@ class APIController extends Controller
     public function pasienData($email){
     	if(Pasien::where('email', $email)->count() > 0){
     		$pasien = Pasien::where('email', $email)->first();
+
+            $kontrol_status = 'inactive';
+            $kontrol = Kontrol::where('pasien_id', $pasien->id)->where('status', 'berjalan')->count();
+            if($kontrol>0){
+                $kontrol_status = 'active';
+            }
     		$res =  [
 			   'id' => $pasien->id,
 			   'nama' => $pasien->nama,
@@ -63,6 +70,7 @@ class APIController extends Controller
 			   'nama_pmo' => $pasien->nama_pmo,
 			   'nik_pmo' => $pasien->nik_pmo,
 			   'telepon_pmo' => $pasien->tlp_pmo,
+               'kontrol_status' => $kontrol_status,
 			];
 
     		return response()->json($res);
@@ -90,18 +98,16 @@ class APIController extends Controller
                     $k['tgl_kontrol'] = date('d-m-Y', strtotime($kon->tgl_kontrol));
                     $k['tgl_kembali'] = date('d-m-Y', strtotime($kon->tgl_kembali));
                     $k['status'] = $kon->status;
-                    $k['dpjp'] = $kon->dpjp->nama;
+                    $k['dokter'] = $kon->dokter->nama;
 
                     $kontrols[] = $k;
                 }
-
-            
 
         		$res =  [
     			   	'id' => $monitoring->id,
     				'nama' => $monitoring->pasien->nama,
     				'no_monitoring' => $monitoring->no_monitoring,
-    				'dok_konsultan' => $monitoring->dokter_konsultan->nama,
+    				'perawat' => $monitoring->perawat->nama,
     				'klinik_awal' => $monitoring->klinik_awal,
     				'tgl_mulai' => date('d-m-Y', strtotime($monitoring->tgl_mulai)),
     				'tahap' => $monitoring->tahap_pengobatan,
@@ -205,5 +211,32 @@ class APIController extends Controller
         }
 
         return response()->json("Gagal update perkembangan pasien");
+    }
+
+    public function updateSesakNafas($email, $level){
+        $pasien = Pasien::where('email', $email)->first();
+        $kontrol = Kontrol::where('pasien_id', $pasien->id)->where('status', 'berjalan')->first();
+
+        if(SurveySesakNafas::where('pasien_id', $pasien->id)->where('kontrol_id', $kontrol->id)->where('created_at', 'LIKE', '%'.date('Y-m-d').'%')->count() <=0 ){
+            $p = new SurveySesakNafas;
+            $p->pasien_id = $pasien->id;
+            $p->kontrol_id = $kontrol->id;
+            $p->tingkat_sesak_nafas = $level;
+            $p->save();
+
+            return response()->json("Survey sesak nafas pasien telah diupdate");
+        }else{
+            return response()->json("Survey sesak nafas pasien telah diupdate");
+        }
+
+        return response()->json("Gagal update survey sesak nafas pasien");
+    }
+
+    public function gantiPassword(Request $request) {
+        $pasien = Pasien::where('email', $request->email)->first();
+        $pasien->password = bcrypt($request->password);
+        $pasien->save();
+
+        return response()->json("Password berhasil diganti");
     }
 }

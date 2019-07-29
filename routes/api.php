@@ -25,3 +25,7 @@ Route::get('obat/jadwal/{id_kontrol_obat}', 'APIController@jadwalKonsumsiData');
 Route::get('update/jadwal/{diminum}/{jadwal_konsumsi_id}', 'APIController@updateJadwal');
 
 Route::get('perkembangan/{email}/{mual}/{muntah}/{pusing}/{nyeri_kaki}/{gatal}/{kemerahan}/{kuning}/{lain_lain}', 'APIController@updatePerkembangan');
+
+Route::get('sesaknafas/{email}/{level}', 'APIController@updateSesakNafas');
+
+Route::post('ganti/password', 'APIController@gantiPassword');

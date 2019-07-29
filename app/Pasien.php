@@ -41,6 +41,11 @@ class Pasien extends Authenticatable
 
      public function monitoring()
     {
-        return $this->hasOne('App\Monitoring');
+        return $this->hasMany('App\Monitoring');
+    }
+
+     public function kontrols()
+    {
+        return $this->hasMany('App\Kontrol');
     }
 }

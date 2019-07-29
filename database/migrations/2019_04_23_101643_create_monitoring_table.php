@@ -17,6 +17,7 @@ class CreateMonitoringTable extends Migration
             $table->increments('id')->unsigned();
             $table->string('no_monitoring')->nullabale()->default("");
             $table->integer('pasien_id')->unsigned();
+            $table->integer('perawat_id')->unsigned();
             $table->string('klinik_awal');
             $table->date('tgl_mulai');
             $table->integer('tahap_pengobatan')->nullabale();
@@ -24,9 +25,7 @@ class CreateMonitoringTable extends Migration
             /* Kontrol yg harus dilakukan */
             $table->integer ('jml_kontrol');
 
-            $table->enum('status', ['belum','berjalan','selesai','do']);
-            
-
+            $table->enum('status', ['belum','berjalan','selesai','do','failure']);
 
             $table->timestamps();
 
@@ -37,6 +36,10 @@ class CreateMonitoringTable extends Migration
            
             $table->foreign('pasien_id')
             ->references('id')->on('pasien')
+            ->onDelete('cascade')->onUpdate('cascade');
+
+             $table->foreign('perawat_id')
+            ->references('id')->on('perawat')
             ->onDelete('cascade')->onUpdate('cascade');
         });
     }

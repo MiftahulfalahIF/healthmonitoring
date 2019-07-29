@@ -2,17 +2,23 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Dokter extends Model
+class Perawat extends Authenticatable
 {
+    use Notifiable;
+    
+	protected $table='perawat'; 
 
-    protected $table='dokter';
 
- 
+	 public function monitoring()
+   	 	{
+        return $this->hasMany('App\Monitoring');
+    }
+		
+
     public function kontrols()
     {
         return $this->hasMany('App\Kontrol');

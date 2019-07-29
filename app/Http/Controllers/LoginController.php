@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
-use App\Dokter;
 
 class LoginController extends Controller
 {
@@ -20,11 +19,8 @@ class LoginController extends Controller
             // Authentication passed...
 
             $user = Auth::user();
-            if ($user->role=='dokter_konsultan')
-                return redirect()->action('DokterKonsultan\DashboardController@index');
-
-            if ($user->role=='dpjp')
-                return redirect()->action('Dpjp\DashboardController@index');
+            if ($user->role=='superadmin')
+                return redirect()->action('Perawat\PasienController@index');
 	    }
 
 	    // Kondisi salah email atau password
